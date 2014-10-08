@@ -1,0 +1,11 @@
+<%= simple_form_for(@user, url: password_path, method: :put, html: {class: 'form-signin'}) do |f| %>
+  <h2 class="form-signin-heading"><%= t 'passwords.change' %></h2>
+  <%= f.error_notification %>
+
+  <p><%= t 'email' %>: <b><%= @user.email %></b></p>
+  <%= f.input :password, hint: false %>
+  <%= f.input :password_confirmation %>
+  <%= hidden_field_tag :token, @token %>
+
+  <%= f.button :submit, "#{t 'passwords.update'}", class: "btn btn-primary btn-block" %>
+<% end %>

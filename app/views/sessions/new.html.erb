@@ -1,0 +1,16 @@
+<%= simple_form_for(:session, url: sessions_path, method: :post, html: {class: "form-signin"}) do |f| %>
+  <h2 class="form-signin-heading"><%= t 'sign_in' %></h2>
+  <%= render 'flash' %>
+  <%= f.error_notification %>
+
+  <%= f.input :email, label: false, autofocus: true %>
+  <%= f.input :password, label: false %>
+
+  <label class="checkbox">
+    <%= check_box_tag :remember_me %> <%= t 'remember_me' %>
+  </label>
+
+  <p><%= f.button :submit, class: "btn btn-lg btn-primary btn-block" %></p>
+<% end %>
+
+<p><%= link_to "#{t 'sessions.login_with_github'}", auth_at_provider_path(provider: :github) %> <span class="pull-right"><%= link_to "#{t 'passwords.forgot'}", new_password_path %></span></p>

@@ -1,0 +1,44 @@
+
+en:
+  site_name: Logcamp
+  email: Email
+  password: Password
+  remember_me: Remember me
+  registrations:
+    edit: Profile
+    update: Update Profile
+  passwords:
+    forgot: Forgot password?
+    reset: Reset password
+    email_address: Email address
+    change: Change password
+    password_hint: New password (min. 6 characters)
+    password_confirmation_hint: Confirm password
+    update: Update password
+    instructions_sent: Instructions sent. Please check your inbox
+    password_updated_please_sign_in: Password was successfully updated. Please sign in
+  profile:
+    password_hint: Leave empty if you don't want to change it
+    updated: Profile was successfully updated
+  sessions:
+    please_sign_in: Please sign in
+    sign_in: Sign in
+    sign_up: Sign up
+    sign_out: Signed out
+    error: Invalid email/password combination
+    login_with_github: Login with GitHub
+  mailers:
+    signature: Have a great day!
+  user_mailer:
+    welcome:
+      subject: Welcome
+    reset_password_email:
+      subject: Instructions to reset your password
+      intro: You You have requested a new password
+      action: "To choose a new password, just follow this link"
+  helpers:
+    submit:
+      session:
+        submit: Sign in
+      password:
+        submit: Reset password

@@ -1,0 +1,17 @@
+<%= page_title("#{t 'registrations.edit'}") %>
+
+<%= simple_form_for(@user, url: update_profile_path, method: :post) do |f| %>
+  <% if @user.external? %>
+    <div class="alert alert-info">You signed in through GitHub on <%= l @user.authentications.first.created_at.to_date %>.</div>
+  <% end %>
+  <%= f.error_notification %>
+
+  <%= f.input :email %>
+  <%= f.input :full_name %>
+  <% unless @user.external? %>
+    <%= f.input :password, required: false, hint: "#{t 'profile.password_hint'}" %>
+    <%= f.input :password_confirmation %>
+  <% end %>
+
+  <%= f.button :submit, "#{t 'registrations.update'}", class: "btn btn-primary" %>
+<% end %>
