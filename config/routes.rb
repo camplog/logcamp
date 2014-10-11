@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+
   # USER ROUTES
   # ----------------------------------------------------------------------------
   get    'logout'               => 'sessions#destroy',     as: 'logout'
@@ -18,7 +19,8 @@ Rails.application.routes.draw do
   #get '/auth/:provider/callback', to: 'oauths#callback'
   #get '/auth/failure',            to: 'oauths#failure'
 
-  post 'auth/callback',          to: 'oauths#callback'
+  post 'auth/callback',           to: 'oauths#callback'
+  get 'auth/callback',           to: 'oauths#callback'
   get 'auth/:provider/callback', to: 'oauths#callback' # for use with Github
   get 'auth/:provider',          to: 'oauths#oauth',   as: :auth_at_provider
   get 'auth/failure',            to: 'oauths#failure'
