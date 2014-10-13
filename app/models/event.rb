@@ -7,6 +7,7 @@ class Event < ActiveRecord::Base
 
   # VALIDATIONS
   # ------------------------------------------------------------------------------------------------------
+  validates_presence_of :status, :message
 
 
   # CALLBACKS
