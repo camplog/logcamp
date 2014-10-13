@@ -52,9 +52,9 @@ gem 'omniauth-github'
 gem 'identicon'
 gem 'rack-cors', require: 'rack/cors'
 gem 'hirb'
+gem 'ffaker'
 
 group :development, :test do
-  gem 'ffaker'
   gem 'debugger'
 end
 
@@ -69,4 +69,5 @@ end
 group :production do
   gem 'exception_notification', '~> 4.0.0'
   gem 'unicorn'
+  gem 'rails_12factor'
 end
