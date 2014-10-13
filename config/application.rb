@@ -31,14 +31,11 @@ module Logcamp
 
     config.assets.paths << "#{Rails.root}/app/assets/fonts"
 
-    config.middleware.insert_before "ActionDispatch::Static", "Rack::Cors", logger: (-> { Rails.logger }) do
+    config.middleware.use Rack::Cors, logger: (-> { Rails.logger }) do
       allow do
         origins '*'
-        resource '/api/*',
-          headers: :any,
-          methods: [:get, :post],
-          credentials: true,
-          max_age: 0
+        resource '/api/*', headers: :any,
+          methods: [:get, :post, :options], credentials: true, max_age: 0
       end
     end
 
