@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141007041359) do
+ActiveRecord::Schema.define(version: 20141013160742) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -45,12 +45,25 @@ ActiveRecord::Schema.define(version: 20141007041359) do
   create_table "events", force: true do |t|
     t.string   "status"
     t.text     "message"
+    t.json     "metadata"
+    t.boolean  "alert",          default: false
     t.integer  "application_id"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
   end
 
   add_index "events", ["application_id"], name: "index_events_on_application_id", using: :btree
+
+  create_table "searches", force: true do |t|
+    t.string   "name"
+    t.string   "color"
+    t.json     "criteria"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "searches", ["user_id"], name: "index_searches_on_user_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "email",                                           null: false

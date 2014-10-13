@@ -1,11 +1,13 @@
 class ApplicationsController < ApplicationController
-  before_action :set_application, only: [:show, :edit, :update, :destroy]
+  before_action :set_application, only: [:edit, :update, :destroy]
 
   def index
     @applications = current_user.applications.order('name')
   end
 
   def show
+    @application = Application.includes(:events).find(params[:id])
+    @events = @application.events.order('created_at DESC').limit(15)
   end
 
   def new
@@ -17,6 +19,7 @@ class ApplicationsController < ApplicationController
 
   def create
     @application = Application.new(safe_params)
+    @application.user_id = current_user.id
 
     respond_to do |format|
       if @application.save

@@ -1,19 +1,10 @@
-<p id="notice"><%= notice %></p>
+<%= content_for :page_title do %><%= @application.name.titleize %><% end %>
 
-<p>
-  <strong>Name:</strong>
-  <%= @application.name %>
-</p>
-
-<p>
-  <strong>Auth token:</strong>
-  <%= @application.auth_token %>
-</p>
-
-<p>
-  <strong>User:</strong>
-  <%= @application.user_id %>
-</p>
-
-<%= link_to 'Edit', edit_application_path(@application) %> |
-<%= link_to 'Back', applications_path %>
+<% if @application.events.any? %>
+  <%= render 'events/events', events: @application.events %>
+<% else %>
+  <p class="pure-alert pure-alert-info">
+  	<b>No data received</b><br>
+  	Have a look to our <%= link_to "documentation", documentation_path %> to get started.
+  </p>
+<% end %>

@@ -1,0 +1,23 @@
+<div id="menu" class="">
+  <div class="pure-menu pure-menu-open">
+    <%= link_to t('site_name'), root_path, class: 'pure-menu-heading' %>
+
+    <ul>
+      <% current_user.applications.order(:name).each do |app| %>
+        <li><%= link_to app.name, app %></li>
+      <% end %>
+
+      <li class="menu-item-divided"><%= link_to "Save search", new_search_path %></li>
+      <% current_user.searches.order(:name).each do |search| %>
+        <li><%= label_link_to search.name, search, label: search.color %></li>
+      <% end %>
+
+      <!-- pure-menu-selected -->
+      <li class="menu-item-divided"><%= icon_link_to 'My Applications', applications_path, icon: 'cog' %></li>
+      <li><%= icon_link_to "Documentation", documentation_path, icon: 'book' %></li>
+
+      <li class="menu-item-divided"><%= icon_link_to current_user.full_name, profile_path, icon: 'user' %></li>
+      <li><%= icon_link_to "#{t 'sessions.sign_out'}", logout_path, icon: 'exit' %></li>
+    </ul>
+  </div>
+</div>

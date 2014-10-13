@@ -4,6 +4,7 @@ en:
   email: Email
   password: Password
   remember_me: Remember me
+  are_you_sure: Are you sure?
   registrations:
     edit: Profile
     update: Update Profile
@@ -24,7 +25,7 @@ en:
     please_sign_in: Please sign in
     sign_in: Sign in
     sign_up: Sign up
-    sign_out: Signed out
+    sign_out: Sign out
     error: Invalid email/password combination
     login_with_github: Login with GitHub
   mailers:

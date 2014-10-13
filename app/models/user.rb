@@ -10,8 +10,9 @@ class User < ActiveRecord::Base
   has_many :authentications, dependent: :destroy
   accepts_nested_attributes_for :authentications
 
+  has_many :searches,     dependent: :destroy
   has_many :applications, dependent: :destroy
-  has_many :events, through: :applications
+  has_many :events,       through: :applications
 
 
   # ATTRIBUTES

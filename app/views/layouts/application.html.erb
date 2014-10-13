@@ -7,10 +7,27 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+	<div id="layout" class="">
+    <!-- Menu toggle -->
+    <a href="#menu" id="menuLink" class="menu-link">
+      <!-- Hamburger icon -->
+      <span></span>
+    </a>
 
-  <%= render 'header' %>
-  <%= render 'flash' %>
-  <%= yield %>
+    <%= render 'sidebar' %>
 
+    <div id="main">
+      <div class="header">
+        <h1><%= yield :page_title %></h1>
+      </div>
+
+      <div class="content">
+        <%#= render 'header' %>
+
+        <%= render 'flash' %>
+        <%= yield %>
+      </div>
+    </div> <!-- #main -->
+  </div> <!-- #layout -->
 </body>
 </html>

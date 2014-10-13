@@ -1,6 +1,3 @@
-<h1>Editing Application</h1>
+<%= content_for :page_title do %>Editing <%= @application.name %><% end %>
 
 <%= render 'form' %>
-
-<%= link_to 'Show', @application %> |
-<%= link_to 'Back', applications_path %>

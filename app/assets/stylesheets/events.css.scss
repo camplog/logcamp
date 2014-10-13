@@ -1,0 +1,9 @@
+.event {
+	&:hover { cursor: pointer; }
+
+	[class^="icon-"], [class*=" icon-"] {
+		color: #777;
+
+		&:hover { color: #333; }
+	}
+}

@@ -30,15 +30,34 @@ puts "creating apps"
 end
 print "\n"
 
+app = Application.first
+app.update!(auth_token: '111')
+
 puts "creating events"
 
 100.times do |i|
 	print '.'
   x = i + 1
-  Event.create!(
-    status: [:info, :error, :warning, :success, :log, :debug].sample,
-    message: "Event #{x}",
+  event = Event.create!(
+    status: [:info, :error, :warning, :success, :log, :debug, :failure, :special].sample,
+    message: Faker::Lorem.sentence,
+    alert: [true, false].sample,
     application_id: Application.pluck(:id).sample
+  )
+  event.update!(metadata: event.attributes.to_json)
+end
+print "\n"
+
+puts "creating searches"
+
+10.times do |i|
+  print '.'
+  x = i + 1
+  search = Search.create!(
+    name: "Search #{x}",
+    color: ['orange', 'light-blue', 'blue', 'green', 'red', 'black', 'purple'].sample,
+    criteria: [status: ['log', 'warning', 'error', 'success', 'debug'].sample].to_json,
+    user_id: User.pluck(:id).sample
   )
 end
 print "\n"

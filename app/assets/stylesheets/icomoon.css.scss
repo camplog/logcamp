@@ -1,0 +1,47 @@
+@font-face {
+	font-family: 'icomoon';
+	src:url(font_path('icomoon/icomoon.eot?-qydcgt'));
+	src:
+	  url(font_path('icomoon/icomoon.eot?#iefix-qydcgt')) format('embedded-opentype'),
+		url(font_path('icomoon/icomoon.woff?-qydcgt')) format('woff'),
+		url(font_path('icomoon/icomoon.truetype?-qydcgt')) format('truetype'),
+		url(font_path('icomoon/icomoon.svg?-qydcgt')) format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+	font-family: 'icomoon';
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+
+	/* Better Font Rendering =========== */
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.icon-book:before {
+	content: "\e606";
+}
+.icon-user:before {
+	content: "\e600";
+}
+.icon-cog:before {
+	content: "\e602";
+}
+.icon-menu:before {
+	content: "\e601";
+}
+.icon-exit:before {
+	content: "\e603";
+}
+.icon-radio-checked:before {
+	content: "\e604";
+}
+.icon-arrow-down:before {
+	content: "\e605";
+}

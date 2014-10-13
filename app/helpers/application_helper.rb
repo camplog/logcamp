@@ -7,4 +7,11 @@ module ApplicationHelper
     end
   end
 
+  def content_subhead(&block)
+  	page_actions = block_given? ? capture(&block) : ''
+    content_tag(:div, class: "content-subhead") do
+      page_actions.html_safe
+    end
+  end
+
 end

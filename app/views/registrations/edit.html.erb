@@ -1,4 +1,4 @@
-<%= page_title("#{t 'registrations.edit'}") %>
+<%= content_for :page_title do %><%= "#{t 'registrations.edit'}" %><% end %>
 
 <%= simple_form_for(@user, url: update_profile_path, method: :post) do |f| %>
   <% if @user.external? %>
@@ -13,5 +13,7 @@
     <%= f.input :password_confirmation %>
   <% end %>
 
-  <%= f.button :submit, "#{t 'registrations.update'}", class: "btn btn-primary" %>
+  <div class="form-actions">
+    <%= f.button :submit, "#{t 'registrations.update'}", class: "btn btn-primary" %>
+  </div>
 <% end %>

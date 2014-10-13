@@ -1,31 +1,24 @@
-<p id="notice"><%= notice %></p>
+<%= content_for :page_title do %>Applications<% end %>
+<%= content_subhead do %>
+  <%= link_to 'New Application', new_application_path, class: 'pure-button pure-button-primary' %>
+<% end %>
 
-<h1>Listing Applications</h1>
-
-<table>
+<table class="pure-table pure-table-horizontal">
   <thead>
     <tr>
       <th>Name</th>
-      <th>Auth token</th>
-      <th>User</th>
-      <th colspan="3"></th>
+      <th>Token</th>
+      <th></th>
     </tr>
   </thead>
 
   <tbody>
     <% @applications.each do |application| %>
       <tr>
-        <td><%= application.name %></td>
+        <td><%= link_to application.name, edit_application_path(application) %></td>
         <td><%= application.auth_token %></td>
-        <td><%= application.user_id %></td>
-        <td><%= link_to 'Show', application %></td>
-        <td><%= link_to 'Edit', edit_application_path(application) %></td>
-        <td><%= link_to 'Destroy', application, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Destroy', application, method: :delete, data: { confirm: "#{ t 'are_you_sure'}"}, class: 'pure-button pure-button-danger pure-button-small' %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New Application', new_application_path %>

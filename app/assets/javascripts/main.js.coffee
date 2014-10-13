@@ -1,6 +1,6 @@
 $ ->
   flashCallback = ->
-    $(".alert").fadeOut()
-  $(".alert").bind 'click', (ev) =>
-    $(".alert").fadeOut()
+    $(".pure-alert").fadeOut()
+  $(".pure-alert").bind 'click', (ev) =>
+    $(".pure-alert").fadeOut()
   setTimeout flashCallback, 3000

@@ -1,0 +1,7 @@
+<table class="pure-table pure-table-horizontal pure-table-minimalist">
+  <tbody>
+    <% @events.each do |event| %>
+      <%= render 'events/event', event: event %>
+    <% end %>
+  </tbody>
+</table>

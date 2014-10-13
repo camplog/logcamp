@@ -42,7 +42,7 @@ gem 'spring',        group: :development
 
 gem 'simple_form', '~> 3.1.0.rc2'
 gem 'nested_form'
-gem 'rails_bootstrap_helper', '~> 1.0.1', github: 'olimart/rails_bootstrap_helper', branch: 'bs3.1'
+# gem 'rails_bootstrap_helper', '~> 1.0.1', github: 'olimart/rails_bootstrap_helper', branch: 'bs3.1'
 gem 'tabs_on_rails', '~> 2.1.1'
 gem 'thin'
 gem 'figaro', '~> 1.0.0.rc1', github: 'laserlemon/figaro'
@@ -50,10 +50,12 @@ gem 'sorcery', '~> 0.8.6'
 gem 'omniauth'
 gem 'omniauth-github'
 gem 'identicon'
+gem 'rack-cors', require: 'rack/cors'
+gem 'hirb'
 
 group :development, :test do
   gem 'ffaker'
-  gem 'hirb'
+  gem 'debugger'
 end
 
 group :development do

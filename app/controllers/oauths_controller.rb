@@ -18,7 +18,7 @@ class OauthsController < ApplicationController
       flash[:notice] = "Logged in from #{provider.titleize}!"
     else
       begin
-        @user = add_provider_to_user(provider) #create_from(provider)
+        @user = create_from(provider) #add_provider_to_user(provider) #
         reset_session # protect from session fixation attack
         auto_login(@user)
         redirect_to root_path

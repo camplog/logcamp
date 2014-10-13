@@ -1,0 +1,163 @@
+@import "variables";
+
+/* -----------------------------------------
+/* forms
+----------------------------------------- */
+.pure-form-aligned {
+	.pure-control-group {
+		margin-bottom: 1em;
+	}
+
+	.help-block {
+	  font-size: 12px;
+	  margin-left: 176px;
+	  margin-top: 4px;
+	  margin-bottom: 0;
+  }
+}
+
+.form-actions {
+	margin: 2em 0;
+
+	[type="submit"] {
+		margin-left: 176px;
+	}
+}
+
+.has-error {
+	label,
+	input {
+		color: $red;
+	}
+
+	input[type="text"], input[type="text"]:focus,
+	input[type="password"], input[type="password"]:focus,
+	input[type="email"], input[type="email"]:focus,
+	input[type="url"], input[type="url"]:focus,
+	input[type="date"], input[type="date"]:focus,
+	input[type="month"], input[type="month"]:focus ,
+	input[type="time"], input[type="time"]:focus,
+	input[type="datetime"], input[type="datetime"]:focus,
+	input[type="datetime-local"], input[type="datetime-local"]:focus,
+	input[type="week"], input[type="week"]:focus,
+	input[type="number"], input[type="number"]:focus,
+	input[type="search"], input[type="search"]:focus,
+	input[type="tel"], input[type="tel"]:focus,
+	input[type="color"], input[type="color"]:focus,
+	select,
+	textarea {
+		border: 1px solid $red;
+	}
+	.help-block {
+		color: $red;
+		margin-left: 0;
+		padding-left: 10px;
+	}
+}
+
+
+/* -----------------------------------------
+/* tables
+----------------------------------------- */
+.pure-table {
+  width: 100%;
+}
+
+.pure-table-minimalist {
+	border: none;
+
+	tbody > tr:hover {
+		background-color: #f2f2f2;
+	}
+}
+
+/* -----------------------------------------
+/* buttons
+----------------------------------------- */
+.pure-button-danger,
+.pure-button-error {
+  background-color: $red;
+  color: #fff;
+}
+
+.pure-button-xsmall {
+  font-size: 70%;
+}
+
+.pure-button-small {
+  font-size: 85%;
+}
+
+.pure-button-large {
+  font-size: 110%;
+}
+
+.pure-button-xlarge {
+  font-size: 125%;
+}
+
+/* -----------------------------------------
+/* labels
+----------------------------------------- */
+.pure-label {
+	width: 15px;
+  height: 15px;
+  display: inline-block;
+  //margin-right: 0.5em;
+  line-height: 24px;
+  border-radius: 3px;
+  background-color: $grey;
+
+  &.pure-label-info,
+  &.pure-label-light-blue { background-color: $light-blue; }
+  &.pure-label-success,
+  &.pure-label-green      { background-color: $green; }
+  &.pure-label-warning,
+  &.pure-label-orange     { background-color: $orange; }
+  &.pure-label-error,
+  &.pure-label-red        { background-color: $red; }
+  &.pure-label-inverse,
+  &.pure-label-black      { background-color: $black; }
+  &.pure-label-special,
+  &.pure-label-purple     { background-color: $purple; }
+}
+
+/* -----------------------------------------
+/* badges
+----------------------------------------- */
+.pure-badge-log,
+.pure-badge-debug,
+.pure-badge-warm {
+	background-color: $orange;
+}
+
+.pure-badge-victory,
+.pure-badge-all-good,
+.pure-badge-good,
+.pure-badge-positive,
+.pure-badge-excellent {
+	background-color: $green;
+}
+
+.pure-badge-information,
+.pure-badge-news,
+.pure-badge-new,
+.pure-badge-cold {
+	background-color: $light-blue;
+}
+
+.pure-badge-failure,
+.pure-badge-fail,
+.pure-badge-exception,
+.pure-badge-danger,
+.pure-badge-fire,
+.pure-badge-achtung,
+.pure-badge-serious,
+.pure-badge-injury,
+.pure-badge-hot {
+	background-color: $red;
+}
+
+.pure-badge-special {
+	background-color: $purple;
+}
