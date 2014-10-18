@@ -6,10 +6,10 @@ class CreateApplications < ActiveRecord::Migration
       t.boolean :active, default: true
       t.string  :identicon
       t.string  :auth_token
-      t.integer :user_id
+      t.integer :owner_id
 
       t.timestamps null: false
     end
-    add_index :applications, :user_id
+    add_index :applications, :owner_id
   end
 end

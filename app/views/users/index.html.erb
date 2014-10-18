@@ -1,0 +1,20 @@
+<%= content_for :page_title do %>Application Members<% end %>
+
+<% if @members.any? %>
+  <table class="pure-table pure-table-horizontal">
+	  <thead>
+	    <tr>
+	      <th>Name</th>
+	      <th></th>
+	    </tr>
+	  </thead>
+
+	  <tbody>
+	    <% @members.each do |user| %>
+	      <%= render 'member', user: user %>
+	    <% end %>
+	  </tbody>
+	</table>
+<% else %>
+  <p class="pure-alert pure-alert-info">No contributors found.</p>
+<% end %>

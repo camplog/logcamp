@@ -11,10 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141013160742) do
+ActiveRecord::Schema.define(version: 20141018154635) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "accounts", force: true do |t|
+    t.integer  "owner_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "accounts", ["owner_id"], name: "index_accounts_on_owner_id", using: :btree
 
   create_table "applications", force: true do |t|
     t.string   "name"
@@ -22,12 +30,21 @@ ActiveRecord::Schema.define(version: 20141013160742) do
     t.boolean  "active",     default: true
     t.string   "identicon"
     t.string   "auth_token"
-    t.integer  "user_id"
+    t.integer  "owner_id"
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
   end
 
-  add_index "applications", ["user_id"], name: "index_applications_on_user_id", using: :btree
+  add_index "applications", ["owner_id"], name: "index_applications_on_owner_id", using: :btree
+
+  create_table "applications_users", id: false, force: true do |t|
+    t.integer "application_id"
+    t.integer "user_id"
+  end
+
+  add_index "applications_users", ["application_id", "user_id"], name: "index_applications_users_on_application_id_and_user_id", unique: true, using: :btree
+  add_index "applications_users", ["application_id"], name: "index_applications_users_on_application_id", using: :btree
+  add_index "applications_users", ["user_id"], name: "index_applications_users_on_user_id", using: :btree
 
   create_table "authentications", force: true do |t|
     t.string   "provider"
@@ -70,6 +87,7 @@ ActiveRecord::Schema.define(version: 20141013160742) do
     t.string   "full_name"
     t.string   "github_login"
     t.boolean  "admin",                           default: false
+    t.integer  "applications_count",              default: 0
     t.string   "crypted_password",                                null: false
     t.string   "salt",                                            null: false
     t.string   "remember_me_token"

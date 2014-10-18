@@ -5,6 +5,7 @@ class SorceryCore < ActiveRecord::Migration
       t.string   :full_name
       t.string   :github_login
       t.boolean  :admin,                           default: false
+      t.integer  :applications_count,              default: 0
       t.string   :crypted_password,                null: false
       t.string   :salt,                            null: false
 

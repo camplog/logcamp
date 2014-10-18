@@ -5,7 +5,7 @@ puts 'GENERATING SAMPLE DATA ...'
 
 puts "creating users"
 
-3.times do |x|
+5.times do |x|
   print '.'
   u = x + 1
   user = User.create!(
@@ -18,14 +18,14 @@ print "\n"
 
 puts "creating apps"
 
-3.times do |i|
+10.times do |i|
 	print '.'
   x = i + 1
   Application.create!(
     name: "app#{x}",
     slug: "app#{x}",
     active: [true, false].sample,
-    user_id: User.pluck(:id).sample
+    owner_id: User.pluck(:id).sample
   )
 end
 print "\n"
@@ -45,6 +45,15 @@ puts "creating events"
     application_id: Application.pluck(:id).sample
   )
   event.update!(metadata: event.attributes.to_json)
+end
+print "\n"
+
+puts "creating memberships"
+
+10.times do |i|
+  print '.'
+  x = i + 1
+  Application.all.sample.members << User.all.sample
 end
 print "\n"
 

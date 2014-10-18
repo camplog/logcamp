@@ -1,10 +1,12 @@
 class Application < ActiveRecord::Base
 	include Sluggable
+  include Ownership
 
 	# ASSOCIATIONS
 	# ------------------------------------------------------------------------------------------------------
-	belongs_to :user
-	has_many :events, dependent: :destroy
+	belongs_to              :owner,   class_name: 'User', counter_cache: true
+  has_and_belongs_to_many :members, class_name: 'User'
+	has_many                :events,  dependent: :destroy
 
 
   # SCOPES
@@ -20,7 +22,8 @@ class Application < ActiveRecord::Base
 
   # CALLBACKS
   # ------------------------------------------------------------------------------------------------------
-  before_create :format_fields
+  before_create  :format_fields
+  before_destroy { members.clear }
 
 
   # INSTANCE METHODS

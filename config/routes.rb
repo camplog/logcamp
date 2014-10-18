@@ -42,6 +42,12 @@ Rails.application.routes.draw do
   # ----------------------------------------------------------------------------
   resources :applications do
     resources :events, only: :index
+    resources :users, only: :index do
+      post 'manage_membership'
+    end
+    member do
+      get  'members'
+    end
   end
   resources :events
   resources :searches

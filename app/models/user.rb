@@ -10,13 +10,15 @@ class User < ActiveRecord::Base
   has_many :authentications, dependent: :destroy
   accepts_nested_attributes_for :authentications
 
+  has_one  :account,      foreign_key: 'owner_id', dependent: :destroy
   has_many :searches,     dependent: :destroy
-  has_many :applications, dependent: :destroy
+  has_and_belongs_to_many :applications
   has_many :events,       through: :applications
 
 
-  # ATTRIBUTES
+  # SCOPES
   # ------------------------------------------------------------------------------------------------------
+  scope :exclude_users, ->(user_ids) { where("id NOT IN (?)", user_ids) }
 
 
   # VALIDATIONS
@@ -32,7 +34,9 @@ class User < ActiveRecord::Base
 
   # CALLBACKS
   # ------------------------------------------------------------------------------------------------------
-  before_create :format_fields
+  before_create  :format_fields
+  after_create   { create_account }
+  before_destroy { applications.clear }
 
 
   # INSTANCE METHODS

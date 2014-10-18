@@ -18,8 +18,8 @@ class ApplicationsController < ApplicationController
   end
 
   def create
-    @application = Application.new(safe_params)
-    @application.user_id = current_user.id
+    @application = current_users.applications.new(safe_params)
+    @application.owner_id = current_user.id
 
     respond_to do |format|
       if @application.save
