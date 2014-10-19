@@ -3,7 +3,7 @@ class ApplicationsController < ApplicationController
   before_action :add_abilities,   only: [:show, :edit, :update, :destroy]
 
   def index
-    @applications = current_user.applications.order('name')
+    @applications = Application.where(owner_id: current_user.id).order('name')
   end
 
   def show
