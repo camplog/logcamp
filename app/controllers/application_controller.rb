@@ -6,6 +6,8 @@ class ApplicationController < ActionController::Base
   # before_action :require_login
   before_action :current_user
 
+  helper_method :abilities, :can?
+
   private
 
     def current_user
@@ -21,4 +23,14 @@ class ApplicationController < ActionController::Base
     def require_login
       redirect_to login_url, alert: "#{t 'sessions.please_sign_in'}." if current_user.nil?
     end
+
+    def abilities
+      @abilities ||= Six.new
+    end
+
+    # simple delegate method for controller & view
+    def can?(object, action, subject)
+      abilities.allowed?(object, action, subject)
+    end
+
 end

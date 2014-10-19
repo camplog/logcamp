@@ -12,7 +12,6 @@ class EventsController < ApplicationController
     @event = Event.new
   end
 
-  # GET /events/1/edit
   def edit
   end
 
@@ -59,4 +58,5 @@ class EventsController < ApplicationController
     def safe_params
       params.require(:event).permit(:status, :message)
     end
+
 end

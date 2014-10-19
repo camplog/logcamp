@@ -28,12 +28,19 @@ class Application < ActiveRecord::Base
 
   # INSTANCE METHODS
   # ------------------------------------------------------------------------------------------------------
+  def self.allowed(object, subject)
+    rules = []
+    return rules unless subject.instance_of?(Application)
+    rules << :read_application if subject.members.exists?(object)
+    rules << :manage_application if subject.owner == object
+    rules
+  end
 
   private
 
     def format_fields
-    	self.auth_token  = SecureRandom.hex
-      self.identicon   = Identicon.data_url_for name, 128, [255, 255, 255]
+    	self.auth_token = SecureRandom.hex
+      self.identicon  = Identicon.data_url_for name, 128, [255, 255, 255]
     end
 
 end

@@ -186,6 +186,7 @@ GEM
     simple_form (3.1.0.rc2)
       actionpack (~> 4.0)
       activemodel (~> 4.0)
+    six (0.2.0)
     sorcery (0.8.6)
       bcrypt (~> 3.1)
       oauth (~> 0.4, >= 0.4.4)
@@ -252,6 +253,7 @@ DEPENDENCIES
   sass-rails (~> 5.0.0.beta1)
   sdoc (~> 0.4.0)
   simple_form (~> 3.1.0.rc2)
+  six
   sorcery (~> 0.8.6)
   spring
   tabs_on_rails (~> 2.1.1)

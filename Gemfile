@@ -53,6 +53,7 @@ gem 'identicon'
 gem 'rack-cors', require: 'rack/cors'
 gem 'hirb'
 gem 'ffaker'
+gem 'six'
 
 group :development, :test do
   gem 'debugger'
