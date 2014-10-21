@@ -53,6 +53,7 @@ Rails.application.routes.draw do
   resources :searches
   get 'feed', to: 'events#index'
   get 'docs', to: 'pages#documentation', as: :documentation
+  get 'home', to: 'pages#home'
 
   root 'events#index'
 
