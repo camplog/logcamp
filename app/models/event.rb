@@ -12,10 +12,15 @@ class Event < ActiveRecord::Base
 
   # CALLBACKS
   # ------------------------------------------------------------------------------------------------------
+  before_save :format_fields
 
 
   # INSTANCE METHODS
   # ------------------------------------------------------------------------------------------------------
+  private
 
+    def format_fields
+      self.status = status.downcase
+    end
 
 end
