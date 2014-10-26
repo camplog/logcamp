@@ -11,10 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141018154635) do
+ActiveRecord::Schema.define(version: 20141026154736) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+  enable_extension "unaccent"
 
   create_table "accounts", force: true do |t|
     t.integer  "owner_id"
@@ -64,12 +65,21 @@ ActiveRecord::Schema.define(version: 20141018154635) do
     t.text     "message"
     t.json     "metadata"
     t.boolean  "alert",          default: false
+    t.string   "keywords"
     t.integer  "application_id"
     t.datetime "created_at",                     null: false
     t.datetime "updated_at",                     null: false
   end
 
   add_index "events", ["application_id"], name: "index_events_on_application_id", using: :btree
+
+  create_table "pg_search_documents", force: true do |t|
+    t.text     "content"
+    t.integer  "searchable_id"
+    t.string   "searchable_type"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
 
   create_table "searches", force: true do |t|
     t.string   "name"

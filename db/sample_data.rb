@@ -53,7 +53,8 @@ puts "creating memberships"
 10.times do |i|
   print '.'
   x = i + 1
-  Application.all.sample.members << User.all.sample
+  app = Application.all.sample
+  app.members << [User.all - app.members].sample
 end
 print "\n"
 

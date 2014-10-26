@@ -49,6 +49,26 @@ class EventsController < ApplicationController
     end
   end
 
+  def search
+    if params[:query].present?
+      if params[:application_id].present?
+        # app#show view
+        # restrict events to current app events only
+        @application = Application.find(params[:application_id])
+        @events = @application.events.search_by_keyword(params[:query]).page(params[:page]).per(20)
+      else
+        # events#index view
+        # get all events users can see based on app. memberships
+        @events = current_user.events.search_by_keyword(params[:query]).page params[:page]
+      end
+    end
+
+    respond_to do |format|
+      format.html
+      format.js
+    end
+  end
+
   private
 
     def set_event

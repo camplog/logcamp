@@ -1,4 +1,12 @@
 GIT
+  remote: git://github.com/amatsuda/kaminari.git
+  revision: b1281e21452486b49911e8616fce885b0ea46730
+  specs:
+    kaminari (1.0.0.alpha)
+      actionpack (>= 3.0.0)
+      activesupport (>= 3.0.0)
+
+GIT
   remote: git://github.com/laserlemon/figaro.git
   revision: 5720b12ca2b086ee5f0a9f4267b11b7753c67d21
   specs:
@@ -135,6 +143,10 @@ GEM
       oauth2 (~> 0.9.3)
       omniauth (~> 1.2)
     pg (0.17.1)
+    pg_search (0.7.8)
+      activerecord (>= 3.1)
+      activesupport (>= 3.1)
+      arel
     rack (1.6.0.beta)
     rack-cors (0.2.9)
     rack-mini-profiler (0.9.2)
@@ -235,17 +247,19 @@ DEPENDENCIES
   debugger
   exception_notification (~> 4.0.0)
   ffaker
-  figaro (~> 1.0.0.rc1)!
+  figaro (~> 1.0.0)!
   hirb
   i18n-debug
   identicon
   jbuilder (~> 2.0)
   jquery-rails
+  kaminari (~> 1.0.0.alpha)!
   letter_opener
   nested_form
   omniauth
   omniauth-github
   pg
+  pg_search (~> 0.7.8)
   rack-cors
   rack-mini-profiler
   rails (= 4.2.0.beta2)

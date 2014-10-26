@@ -41,7 +41,9 @@ Rails.application.routes.draw do
   # APP ROUTES
   # ----------------------------------------------------------------------------
   resources :applications do
-    resources :events, only: :index
+    resources :events, only: :index do
+      get 'search', on: :collection
+    end
     resources :users, only: :index do
       post 'manage_membership'
     end
@@ -49,7 +51,9 @@ Rails.application.routes.draw do
       get  'members'
     end
   end
-  resources :events
+  resources :events do
+    get 'search', on: :collection
+  end
   resources :searches
   get 'feed', to: 'events#index'
   get 'docs', to: 'pages#documentation', as: :documentation

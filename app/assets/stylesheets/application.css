@@ -12,6 +12,11 @@
  *
  *= require pure
  *= require pure-extra
- *= require_tree .
+ *= require variables
+ *= require layout
+ *= require components
+ *= require side-menu
+ *= require icomoon
+ *= require events
  *= require_self
  */

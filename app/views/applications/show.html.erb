@@ -1,7 +1,15 @@
 <%= content_for :page_title do %><%= @application.name.titleize %><% end %>
 
 <% if @application.events.any? %>
-  <%= render 'events/events', events: @application.events %>
+  <%= form_tag(search_application_events_path(@application), method: :get, remote: true, id: 'main-search', class: 'pure-form pure-g') do |f| %>
+    <%= render 'search_fields' %>
+  <% end %>
+
+  <div id="events-list">
+  	<%= render 'events/events', events: @application.events %>
+
+  	<%#= paginate events: @application.events %>
+  </div>
 <% else %>
   <p class="pure-alert pure-alert-info">
   	<b>No data received</b><br>

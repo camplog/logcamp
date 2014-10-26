@@ -3,8 +3,9 @@ class CreateEvents < ActiveRecord::Migration
     create_table :events do |t|
       t.string  :status
       t.text    :message
-      t.json   :metadata
+      t.json    :metadata
       t.boolean :alert, default: false
+      t.string  :keywords
       t.integer :application_id
 
       t.timestamps null: false
