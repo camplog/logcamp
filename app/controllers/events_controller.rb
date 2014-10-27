@@ -1,8 +1,9 @@
 class EventsController < ApplicationController
   before_action :set_event, only: [:show, :edit, :update, :destroy]
+  before_filter :require_login
 
   def index
-    @events = current_user.events.order('created_at DESC').limit(20)
+    @events = current_user.events.order('created_at DESC').page(params[:page]).per(15)
   end
 
   def show
