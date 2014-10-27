@@ -119,6 +119,7 @@ Rails.application.config.sorcery.configure do |config|
   config.github.secret = "#{Rails.application.secrets.sorcery_github_secret}"
   config.github.callback_url = "#{Rails.application.secrets.sorcery_github_callback_url}"
   config.github.user_info_mapping = {:email => "name"}
+  config.github.scope = "user:email"
   #
   # config.google.key = ""
   # config.google.secret = ""

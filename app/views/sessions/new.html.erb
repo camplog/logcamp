@@ -13,4 +13,4 @@
   <p><%= f.button :submit, class: "btn btn-lg btn-primary btn-block" %></p>
 <% end %>
 
-<p><%#= link_to "#{t 'sessions.login_with_github'}", auth_at_provider_path(provider: :github) %> <span class="pull-right"><%= link_to "#{t 'passwords.forgot'}", new_password_path %></span></p>
+<p><%= link_to "#{t 'sessions.login_with_github'}", auth_at_provider_path(provider: :github) %> <span class="pull-right"><%= link_to "#{t 'passwords.forgot'}", new_password_path %></span></p>
