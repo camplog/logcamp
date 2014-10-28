@@ -24,30 +24,30 @@
 	-moz-osx-font-smoothing: grayscale;
 }
 
-.icon-book:before {
-	content: "\e606";
-}
 .icon-user:before {
 	content: "\e600";
-}
-.icon-cog:before {
-	content: "\e602";
 }
 .icon-menu:before {
 	content: "\e601";
 }
+.icon-cog:before {
+	content: "\e602";
+}
 .icon-exit:before {
 	content: "\e603";
-}
-.icon-close:before {
-	content: "\e607";
-}
-.icon-remove:before {
-	content: "\e608";
 }
 .icon-radio-checked:before {
 	content: "\e604";
 }
 .icon-arrow-down:before {
 	content: "\e605";
+}
+.icon-book:before {
+	content: "\e606";
+}
+.icon-close:before {
+	content: "\e607";
+}
+.icon-checkmark:before {
+	content: "\e608";
 }

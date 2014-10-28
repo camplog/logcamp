@@ -1,0 +1,55 @@
+ul.color-picker{
+  list-style: none;
+  display: inline-block;
+  margin: 0px;
+  padding-left: 0px;
+  & > li{
+    float: left;
+    margin-right: 10px;
+    width: 40px;
+    input {
+      display: none;
+
+      & + span{
+        display: block;
+        width: 30px;
+        text-align: center;
+        background-color: red;
+        padding: 10px 5px;
+        line-height: 1em;
+
+        & > i{
+          visibility: hidden;
+          color: white;
+        }
+      }
+      &:checked + span{
+        & > i {
+          visibility: visible;
+        }
+      }
+
+      &[value="orange"] + span{
+        background-color: orange;
+      }
+      &[value="light-blue"] + span{
+        background-color: aqua;
+      }
+      &[value="red"] + span{
+        background-color: red;
+      }
+      &[value="green"] + span{
+        background-color: green;
+      }
+      &[value="grey"] + span{
+        background-color: grey;
+      }
+      &[value="black"] + span{
+        background-color: black;
+      }
+      &[value="purple"] + span{
+        background-color: purple;
+      }
+    }
+  }
+}
