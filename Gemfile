@@ -66,7 +66,7 @@ group :development do
   gem 'letter_opener'
   gem 'better_errors', '~> 2.0'
   gem 'web-console', '~> 2.0.0.beta4'
-  gem 'i18n-debug'
+  # gem 'i18n-debug'
 end
 
 group :production do

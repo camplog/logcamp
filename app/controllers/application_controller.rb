@@ -3,8 +3,8 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :null_session
 
-  # before_action :require_login
-  before_action :current_user
+  before_action :require_login
+  #before_action :current_user
 
   helper_method :abilities, :can?
 
@@ -20,8 +20,8 @@ class ApplicationController < ActionController::Base
     end
     helper_method :current_user
 
-    def require_login
-      redirect_to login_url, alert: "#{t 'sessions.please_sign_in'}." if current_user.nil?
+    def not_authenticated
+      redirect_to login_path, alert: "#{t 'sessions.please_sign_in'}."
     end
 
     def abilities

@@ -10,7 +10,7 @@ class OauthsController < ApplicationController
 
   def callback
     provider = auth_params[:provider]
-    puts "**** #{auth_params}"
+    puts "**** #{auth_params} ****"
     begin
     if @user = login_from(provider)
       # user has already linked their account with github

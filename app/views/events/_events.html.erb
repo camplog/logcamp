@@ -2,4 +2,4 @@
   <%= render 'events/event', event: event %>
 <% end %>
 
-<%= paginate @events %>
+<%= paginate @events, remote: true %>
