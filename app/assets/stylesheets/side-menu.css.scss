@@ -1,7 +1,3 @@
-body {
-  color: #777;
-}
-
 .pure-img-responsive {
   max-width: 100%;
   height: auto;
@@ -90,7 +86,7 @@ appears on the left side of the page.
   left: 0;
   bottom: 0;
   z-index: 1000; /* so the menu or its navicon stays above all content */
-  background: #191818;
+  background: #362B3F; // #191818;
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
 }
@@ -98,7 +94,7 @@ appears on the left side of the page.
 All anchors inside the menu should be styled like this.
 */
 #menu a {
-  color: #999;
+  color: #f2f2f2; //#999;
   border: none;
   padding: 0.6em 0 0.6em 0.6em;
 }
@@ -117,14 +113,14 @@ Add that light border to separate items into groups.
 */
 #menu .pure-menu ul,
 #menu .pure-menu .menu-item-divided {
-  border-top: 1px solid #333;
+  border-top: 1px solid #f2f2f2; //#333;
 }
 /*
 Change color of the anchor links on hover/focus.
 */
 #menu .pure-menu li a:hover,
 #menu .pure-menu li a:focus {
-  background: #333;
+  background: #654E6F; //#333;
 }
 
 /*
@@ -132,7 +128,7 @@ This styles the selected menu item `<li>`.
 */
 #menu .pure-menu-selected,
 #menu .pure-menu-heading {
-  background: #1f8dd6;
+  background: #40354B; //#1f8dd6;
 }
 /*
 This styles a link within a selected menu item `<li>`.
