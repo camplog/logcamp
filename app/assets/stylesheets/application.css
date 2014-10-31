@@ -18,5 +18,6 @@
  *= require side-menu
  *= require icomoon
  *= require events
+ *= require search
  *= require_self
  */

@@ -1,13 +1,12 @@
 <div id="menu" class="">
   <div class="pure-menu pure-menu-open">
     <%= link_to t('site_name'), root_path, class: 'pure-menu-heading' %>
-
     <ul>
-      <% current_user.applications.order(:name).each do |app| %>
-        <li><%= link_to app.name, app %></li>
-      <% end %>
+      <% if current_user %>
+        <% current_user.applications.order(:name).each do |app| %>
+          <li><%= link_to app.name, app %></li>
+        <% end %>
 
-      <% if current_user%>
         <li class="menu-item-divided"><%= link_to "Save search", new_search_path %></li>
         <% current_user.searches.order(:name).each do |search| %>
           <li><%= label_link_to search.name, search, label: search.color %></li>

@@ -1,4 +1,8 @@
 // Layout
+body {
+  color: #777;
+}
+
 .content {
   margin-top: 50px;
   margin-bottom: 2em;
@@ -12,6 +16,16 @@
 .content-subhead {
   .pure-button {
   }
+}
+
+/*
+ * Pagination
+ * --------------------------------------------------
+ */
+.pure-paginator,
+.pagination {
+  margin: 30px 0;
+  text-align: center;
 }
 
 // Utilities

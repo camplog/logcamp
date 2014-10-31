@@ -3,7 +3,7 @@ source 'https://rubygems.org'
 ruby '2.0.0'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.2.0.beta2'
+gem 'rails', '4.2.0.beta4'
 # Use postgresql as the database for Active Record
 gem 'pg'
 # Use SCSS for stylesheets
@@ -66,7 +66,7 @@ group :development do
   gem 'letter_opener'
   gem 'better_errors', '~> 2.0'
   gem 'web-console', '~> 2.0.0.beta4'
-  gem 'i18n-debug'
+  # gem 'i18n-debug'
 end
 
 group :production do
