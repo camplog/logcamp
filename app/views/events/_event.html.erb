@@ -1,7 +1,7 @@
 <%= content_tag_for :div, event do %>
   <div class="pure-g summary">
     <div class="pure-u-3-24">
-      <%= status_tag event.status, level: "#{event.status}" %>
+      <%= status_tag (event.formatted_date), level: "#{event.status}" %>
     </div>
     <div class="pure-u-20-24">
       <%= event.message %>
@@ -13,23 +13,23 @@
   <div class="pure-g metadata">
     <div class="pure-u-1-3">
         <div class="meta-key tright">
-          Received
+          Status
         </div>
       </div>
       <div class="pure-u-2-3">
         <div class="meta-value">
-          <%= l event.created_at, format: :long %>
+          <%= event.status.upcase %>
         </div>
       </div>
-    <% [0, 1, 2, 3].sample.times do %>
+    <% event.metadata.each do |key, value| %>
       <div class="pure-u-1-3">
         <div class="meta-key tright">
-          <%= 'key' %>
+          <%= key %>
         </div>
       </div>
       <div class="pure-u-2-3">
         <div class="meta-value">
-          <%= 'value' %>
+          <%= value %>
         </div>
       </div>
     <% end %>

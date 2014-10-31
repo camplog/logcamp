@@ -1,16 +1,18 @@
+@import "variables";
+
 ul.color-picker{
   list-style: none;
   display: inline-block;
   margin: 0px;
   padding-left: 0px;
-  & > li{
+  & > li {
     float: left;
     margin-right: 10px;
     width: 40px;
     input {
       display: none;
 
-      & + span{
+      & + span {
         display: block;
         width: 30px;
         text-align: center;
@@ -18,37 +20,37 @@ ul.color-picker{
         padding: 10px 5px;
         line-height: 1em;
 
-        & > i{
+        & > i {
           visibility: hidden;
           color: white;
         }
       }
-      &:checked + span{
+      &:checked + span {
         & > i {
           visibility: visible;
         }
       }
 
-      &[value="orange"] + span{
-        background-color: orange;
+      &[value="orange"] + span {
+        background-color: $orange;
       }
-      &[value="light-blue"] + span{
-        background-color: aqua;
+      &[value="light-blue"] + span {
+        background-color: $light-blue;
       }
-      &[value="red"] + span{
-        background-color: red;
+      &[value="red"] + span {
+        background-color: $red;
       }
-      &[value="green"] + span{
-        background-color: green;
+      &[value="green"] + span {
+        background-color: $green;
       }
-      &[value="grey"] + span{
-        background-color: grey;
+      &[value="grey"] + span {
+        background-color: $grey;
       }
-      &[value="black"] + span{
-        background-color: black;
+      &[value="black"] + span {
+        background-color: $black;
       }
-      &[value="purple"] + span{
-        background-color: purple;
+      &[value="purple"] + span {
+        background-color: $purple;
       }
     }
   }

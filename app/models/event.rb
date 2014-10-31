@@ -37,6 +37,10 @@ class Event < ActiveRecord::Base
     EventMailer.notify_members(self).deliver_later if alert?
   end
 
+  def formatted_date
+    created_at < 1.day.ago ? created_at.strftime("%d/%m %H:%M") : created_at.strftime("%H:%M")
+  end
+
   private
 
     def format_fields
