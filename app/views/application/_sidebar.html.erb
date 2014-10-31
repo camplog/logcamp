@@ -9,7 +9,9 @@
 
         <li class="menu-item-divided"><%= link_to "Save search", new_search_path %></li>
         <% current_user.searches.order(:name).each do |search| %>
-          <li><%= label_link_to search.name, search, label: search.color %></li>
+          <li>
+            <%= label_link_to search.name, search, label: search.color %>
+          </li>
         <% end %>
 
         <!-- pure-menu-selected -->

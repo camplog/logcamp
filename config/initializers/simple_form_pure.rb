@@ -1,6 +1,6 @@
 # Use this setup block to configure all options available in SimpleForm.
 SimpleForm.setup do |config|
-  config.error_notification_class = 'pure-alert pure-alert-danger'
+  config.error_notification_class = 'pure-alert pure-alert-error'
   config.button_class = 'pure-button pure-button-primary'
   config.boolean_label_class = nil
 

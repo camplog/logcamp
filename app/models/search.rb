@@ -7,6 +7,6 @@ class Search < ActiveRecord::Base
 
   # VALIDATIONS
   # ------------------------------------------------------------------------------------------------------
-  validates_presence_of :name
+  validates_presence_of :name, :color
 
 end

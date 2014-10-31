@@ -6,6 +6,7 @@ class SearchesController < ApplicationController
   end
 
   def show
+    @events = Event.search_by_keyword(@search.criteria).page(params[:page]).per(15)
   end
 
   def new
@@ -21,7 +22,7 @@ class SearchesController < ApplicationController
 
     respond_to do |format|
       if @search.save
-        format.html { redirect_to root_path, notice: 'Search was successfully created.' }
+        format.html { redirect_to root_path, notice: 'Search was successfully created. Here is what we found matching.' }
         format.json { render :show, status: :created, location: @search }
         format.js
       else

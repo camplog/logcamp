@@ -59,7 +59,7 @@ class EventsController < ApplicationController
         # app#show view
         # restrict events to current app events only
         @application = Application.find(params[:application_id])
-        @events = @application.events.search_by_keyword(params[:query]).page(params[:page]).per(20)
+        @events = @application.events.search_by_keyword(params[:query]).page(params[:page]).per(15)
       else
         # events#index view
         # get all events users can see based on app. memberships
