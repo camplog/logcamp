@@ -4,6 +4,10 @@ class EventsController < ApplicationController
 
   def index
     @events = current_user.events.order('created_at DESC').page(params[:page]).per(15)
+    respond_to do |format|
+      format.js
+      format.html
+    end
   end
 
   def show
