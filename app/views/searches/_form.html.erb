@@ -10,7 +10,7 @@
         <% %w(orange light-blue red green grey black purple).each do |color| %>
           <li>
             <label>
-              <input type="radio" value="<%= color %>" name="search[color]"/>
+              <%= f.radio_button :color, color %>
               <span>
                 <i class="icon-checkmark"></i>
               </span>
