@@ -1,7 +1,7 @@
 <%= content_for :page_title do %>Feed<% end %>
 
 <% if @events.any? %>
-  <%= form_tag(search_events_path, method: :get, remote: true, id: 'main-search', class: 'pure-form pure-g') do |f| %>
+  <%= form_tag(search_events_path, method: :get, id: 'main-search', class: 'pure-form pure-g') do |f| %>
     <%= render 'search_fields' %>
   <% end %>
 
