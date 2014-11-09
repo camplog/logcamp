@@ -3,11 +3,20 @@ $ ->
     criteria = $("#query").val()
     updateSearchUrl = $("#update_search_url").val()
 
+    isUpdating = true
+
+    if updateSearchUrl == undefined
+      updateSearchUrl = "/searches"
+      type = "POST"
+      dataType = "script"
+      isUpdating = false
+    else
+      type = "PUT"
+      dataType = "JSON"
+
     $.ajax
       url: updateSearchUrl
-      type: 'PUT'
-      dataType: 'JSON'
+      type: type
+      dataType: dataType
       data:
         "search[criteria]": criteria
-      success:
-        window.location.reload()

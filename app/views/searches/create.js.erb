@@ -1,0 +1,6 @@
+<%
+search_item = content_tag(:li) do
+  label_link_to @search.name, @search, label: @search.color
+end
+%>
+$(".search-item-divider").after("<%=j search_item %>");
