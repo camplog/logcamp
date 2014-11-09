@@ -59,13 +59,13 @@ class EventsController < ApplicationController
         # app#show view
         # restrict events to current app events only
         @application = Application.find(params[:application_id])
-        search = Search.create_new_search(JSON.parse(params[:query]), current_user)
+        search = Search.create_new_search(params[:query], current_user)
 
         redirect_to search_path(search)
       else
         # events#index view
         # get all events users can see based on app. memberships
-        search = Search.create_new_search(JSON.parse(params[:query]), current_user)
+        search = Search.create_new_search(params[:query], current_user)
 
         redirect_to search_path(search)
       end

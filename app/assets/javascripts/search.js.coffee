@@ -1,5 +1,5 @@
 $ ->
-  $("#save-search-link").click (event) ->
+  $(document).on "click", "#save-search-link", (event) ->
     criteria = $("#query").val()
     updateSearchUrl = $("#update_search_url").val()
 
@@ -9,3 +9,5 @@ $ ->
       dataType: 'JSON'
       data:
         "search[criteria]": criteria
+      success:
+        window.location.reload()
