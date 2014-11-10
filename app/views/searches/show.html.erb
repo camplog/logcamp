@@ -1,6 +1,6 @@
 <%= content_for :page_title do %>
   <%= @search.name %>
-  <%= link_to 'Edit', edit_search_path(@search), style: 'font-size: 40%;' %>
+  <%= link_to 'rename', edit_search_path(@search), style: 'font-size: 30%;' %>
 <% end %>
 
 <%= hidden_field_tag :update_search_url, search_path(@search) %>
@@ -8,9 +8,10 @@
   <div class="pure-u-2-3 center-block">
 	  <%= text_field_tag :query, '', value: @search.criteria, placeholder: "#{Date.today.strftime("%d/%m/%Y")}, info, message...", class: 'pure-input-rounded pure-input-2-3' %>
 	  <%= submit_tag 'Search', class: 'pure-button' %>
-	  <%= link_to "Save", "#", id: 'save-search-link' %>
+	  <%= link_to 'Save', '#', id: 'save-search-link' %>
 	</div>
 <% end %>
+
 <div id="events-list">
   <%= render 'events/events' %>
 </div>

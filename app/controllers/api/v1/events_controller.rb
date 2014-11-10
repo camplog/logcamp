@@ -2,8 +2,6 @@ module Api
   module V1
     class EventsController < Api::BaseController
 
-      #respond_to :json
-
       # curl http://localhost:3023/api/events -H 'Authorization: Token token="111"'
       # curl http://localhost:3023/api/events?q=429 -H 'Authorization: Token token="111"'
       def index
@@ -24,7 +22,9 @@ module Api
       def create
         @event = @current_application.events.new(safe_params)
         if @event.save
-          render json: @event, status: :created
+          render @event.as_json, status: :created
+          #render json: @event, status: :created
+          EventMailer.notify_members(@event).deliver_later if @event.alert?
         else
           render json: @event.errors, status: 422
           puts "**** #{@event.errors.full_messages.to_sentence} ****"

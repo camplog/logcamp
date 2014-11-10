@@ -21,17 +21,19 @@
           <%= event.status.upcase %>
         </div>
       </div>
-    <% event.metadata.each do |key, value| %>
-      <div class="pure-u-1-3">
-        <div class="meta-key tright">
-          <%= key %>
+    <% if event.metadata.present? %>
+      <% event.metadata.each do |key, value| %>
+        <div class="pure-u-1-3">
+          <div class="meta-key tright">
+            <%= key %>
+          </div>
         </div>
-      </div>
-      <div class="pure-u-2-3">
-        <div class="meta-value">
-          <%= value %>
+        <div class="pure-u-2-3">
+          <div class="meta-value">
+            <%= value %>
+          </div>
         </div>
-      </div>
+      <% end %>
     <% end %>
   </div>
 <% end %>

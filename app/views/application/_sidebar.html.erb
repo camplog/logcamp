@@ -7,7 +7,7 @@
           <li><%= link_to app.name, app %></li>
         <% end %>
 
-        <li class="menu-item-divided search-item-divider"><%= link_to "Save search", new_search_path %></li>
+        <!-- <li class="menu-item-divided search-item-divider"><%#= link_to "Save search", new_search_path %></li> -->
         <% current_user.searches.order(:name).each do |search| %>
           <li class="search-item">
             <%= label_link_to search.name, search, label: search.color %>

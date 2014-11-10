@@ -28,15 +28,10 @@ class Event < ActiveRecord::Base
   # CALLBACKS
   # ------------------------------------------------------------------------------------------------------
   before_save  :format_fields, :sync_keywords
-  # after_create :notify_members
 
 
   # INSTANCE METHODS
   # ------------------------------------------------------------------------------------------------------
-  def notify_members
-    EventMailer.notify_members(self).deliver_later if alert?
-  end
-
   def formatted_date
     created_at < 1.day.ago ? created_at.strftime("%d/%m %H:%M") : created_at.strftime("%H:%M")
   end

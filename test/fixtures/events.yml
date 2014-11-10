@@ -1,11 +1,11 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
 one:
   status: MyString
   message: MyText
+  metadata: {'key': 'value'}
   application_id: 1
 
 two:
   status: MyString
   message: MyText
+  metadata: {'ping': 'pong'}
   application_id: 1

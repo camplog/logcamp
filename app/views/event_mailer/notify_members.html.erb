@@ -1,5 +1,39 @@
-<h1>EventMailer#notify_members</h1>
+<%= content_for :email_title do %>
+  <tr style="font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; box-sizing: border-box; font-size: 14px; margin: 0; padding: 0;">
+		<td class="alert alert-warning" style="font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; box-sizing: border-box; font-size: 16px; vertical-align: top; color: #fff; font-weight: 500; text-align: center; border-radius: 3px 3px 0 0; background: #ff9f00; margin: 0; padding: 20px;" align="center" valign="top">
+			<%= @event.status.upcase %>
+		</td>
+	</tr>
+<% end %>
 
-<p>
-  <%= @greeting %>, find me in app/views/event_mailer/notify_members.html.erb
-</p>
+<%= content_for :email_intro do %>
+  <%= @event.message %>
+<% end %>
+
+<%= content_for :email_body do %>
+  <tr style="font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; box-sizing: border-box; font-size: 14px; margin: 0; padding: 0;">
+		<td style="font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; box-sizing: border-box; font-size: 14px; vertical-align: top; margin: 0; padding: 5px 0;" valign="top"><%= @event.application.name %></td>
+	</tr>
+	<% if @event.metadata.present? %>
+	  <tr style="font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; box-sizing: border-box; font-size: 14px; margin: 0; padding: 0;">
+			<td style="font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; box-sizing: border-box; font-size: 14px; vertical-align: top; margin: 0; padding: 5px 0;" valign="top">
+				<table class="invoice-items" cellpadding="0" cellspacing="0" style="font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; box-sizing: border-box; font-size: 14px; width: 100%; margin: 0; padding: 0;">
+					<tr style="font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; box-sizing: border-box; font-size: 14px; margin: 0; padding: 0;">
+						<% @event.metadata.each do |key,value| %>
+							<td style="font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; box-sizing: border-box; font-size: 14px; vertical-align: top; border-top-width: 1px; border-top-color: #eee; border-top-style: solid; margin: 0; padding: 5px 0;" valign="top"><%= key %></td>
+							<td class="alignright" style="font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; box-sizing: border-box; font-size: 14px; vertical-align: top; text-align: right; border-top-width: 1px; border-top-color: #eee; border-top-style: solid; margin: 0; padding: 5px 0;" align="right" valign="top"><%= value %></td>
+						<% end %>
+					</tr>
+				</table>
+			</td>
+		</tr>
+	<% end %>
+<% end %>
+
+<%= content_for :email_call_to_action do %>
+  <%= link_to 'View online', feed_url, style: "font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; box-sizing: border-box; font-size: 14px; color: #348eda; text-decoration: underline; margin: 0; padding: 0;" %>
+<% end %>
+
+<%= content_for :email_conclusion do %>
+  Acme Inc. 123 Van Ness, San Francisco 94102
+<% end %>

@@ -1,3 +1,7 @@
 production:
   GITHUB_KEY: ''
   GITHUB_SECRET: ''
+  SMTP_HOST: 'smtp.mandrillapp.com'
+  SMTP_USERNAME: ''
+  SMTP_PASSWORD: ''
+  DEFAULT_EMAIL_SENDER: 'app@email.com'
