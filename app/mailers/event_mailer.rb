@@ -9,6 +9,21 @@ class EventMailer < ActionMailer::Base
   #
   def notify_members(event)
     @event = event
+    @color_code =
+    case @event.status
+    when 'log', 'debug', 'warm', 'warning'
+      'e78c05' # orange
+    when 'victory', 'all-good', 'good', 'positive', 'excellent'
+      '53b44f' # green
+    when 'information', 'news', 'new', 'cold'
+      '12a9da' # light-blue
+    when 'failure', 'fail', 'exception', 'danger', 'fire', 'achtung', 'serious', 'injury', 'hot'
+      'e9322d' # red
+    when 'special'
+      '563d7c' # purple
+    else
+      '9d988e' # grey
+    end
     mail to: @event.application.members.map(&:email).join(", ")
   end
 end

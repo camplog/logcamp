@@ -24,6 +24,6 @@ class SessionsController < ApplicationController
 
 	def destroy
 	  logout
-	  redirect_to root_url #, notice: "#{t 'sessions.signed_out', default: 'Signed out'}."
+	  redirect_to home_url #, notice: "#{t 'sessions.signed_out', default: 'Signed out'}."
 	end
 end

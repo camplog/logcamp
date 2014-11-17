@@ -52,8 +52,8 @@ class User < ActiveRecord::Base
   private
 
     def format_fields
-      self.email     = email.downcase
-      self.full_name = full_name.titleize
+      self.email     = email.downcase if email.present?
+      self.full_name = full_name.titleize if full_name.present?
     end
 
 end

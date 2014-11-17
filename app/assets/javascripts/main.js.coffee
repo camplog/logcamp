@@ -5,7 +5,7 @@ ready = ->
   $(".pure-alert-removable").bind 'click', (ev) =>
     $(".pure-alert-removable").fadeOut()
   setTimeout flashCallback, 3000
-  
+
   $(document).on "click", ".event", (event) ->
   	$(this).find(".metadata").toggle()
 
