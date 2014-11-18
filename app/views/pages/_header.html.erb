@@ -1,10 +1,9 @@
 <div class="header">
   <div class="home-menu pure-menu pure-menu-open pure-menu-horizontal pure-menu-fixed">
-    <a class="pure-menu-heading" href=""><%= t 'site_name' %></a>
+    <%= link_to t('site_name'), logged_in? ? feed_path : root_path, class: 'pure-menu-heading' %>
 
     <ul>
-      <li class="pure-menu-selected"><a href="#">Home</a></li>
-      <li><a href="../docs">Docs</a></li>
+      <li><%= link_to 'Docs', documentation_path %></li>
       <li><%= link_to 'Sign Up', signup_path %></li>
       <li><%= link_to 'Sign In', login_path %></li>
     </ul>

@@ -12,6 +12,6 @@
  *
  *= require pure
  *= require pure-extra
- * require_tree ./public
+ *= require_tree ./public
  *= require_self
  */

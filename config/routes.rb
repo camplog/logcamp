@@ -55,10 +55,9 @@ Rails.application.routes.draw do
     get 'search', on: :collection
   end
   resources :searches
-  get 'feed', to: 'events#index'
+  get 'feed', to: 'events#index', as: :feed
   get 'docs', to: 'pages#documentation', as: :documentation
-  get 'home', to: 'pages#home'
 
-  root 'events#index'
+  root 'pages#home'
 
 end

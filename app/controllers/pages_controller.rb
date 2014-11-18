@@ -1,10 +1,11 @@
 class PagesController < ApplicationController
-  layout 'public', only: [:home]
+	skip_before_filter :require_login
+  layout 'public'
 
   def home
-
   end
 
   def docs
   end
+
 end

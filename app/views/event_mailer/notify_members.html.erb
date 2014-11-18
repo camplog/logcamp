@@ -1,10 +1,4 @@
 <%= content_for :email_title do %>
-  <%
-    case @event.status
-    when 'warning'
-    	'ff9f00'
-    end
-  %>
   <tr style="font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; box-sizing: border-box; font-size: 14px; margin: 0; padding: 0;">
 		<td class="alert alert-warning" style="font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; box-sizing: border-box; font-size: 16px; vertical-align: top; color: #fff; font-weight: 500; text-align: center; border-radius: 3px 3px 0 0; background: #<%= @color_code %>; margin: 0; padding: 20px;" align="center" valign="top">
 			<%= @event.status.upcase %>

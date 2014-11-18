@@ -23,7 +23,7 @@ class SearchesController < ApplicationController
 
     respond_to do |format|
       if @search.save
-        format.html { redirect_to root_path, notice: 'Search was successfully created. Here is what we found matching.' }
+        format.html { redirect_to feed_path, notice: 'Search was successfully created. Here is what we found matching.' }
         format.json { render :show, status: :created, location: @search }
         format.js
       else
@@ -37,7 +37,7 @@ class SearchesController < ApplicationController
   def update
     respond_to do |format|
       if @search.update(safe_params)
-        format.html { redirect_to root_path, notice: 'Search was successfully updated.' }
+        format.html { redirect_to feed_path, notice: 'Search was successfully updated.' }
         format.json { render :show, status: :ok, location: @search }
         format.js
       else
@@ -51,7 +51,7 @@ class SearchesController < ApplicationController
   def destroy
     @search.destroy
     respond_to do |format|
-      format.html { redirect_to root_path, notice: 'Search was successfully destroyed.' }
+      format.html { redirect_to feed_path, notice: 'Search was successfully destroyed.' }
       format.json { head :no_content }
       format.js
     end
