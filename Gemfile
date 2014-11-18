@@ -75,3 +75,6 @@ group :production do
   gem 'unicorn'
   gem 'rails_12factor'
 end
+
+gem 'delayed_job',                '~> 4.0.3'
+gem 'delayed_job_active_record',  '~> 4.0.2'

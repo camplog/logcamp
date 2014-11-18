@@ -24,7 +24,7 @@ module Api
         if @event.save
           render @event.as_json, status: :created
           #render json: @event, status: :created
-          EventMailer.notify_members(@event).deliver_later if @event.alert?
+          EventMailer.delay.notify_members(@event) if @event.alert?
         else
           render json: @event.errors, status: 422
           puts "**** #{@event.errors.full_messages.to_sentence} ****"
@@ -33,7 +33,9 @@ module Api
 
       private
         def safe_params
-          params.require(:event).permit(:status, :message, :alert, metadata: [:color, :sport, :age,:fruit])
+          params.require(:event).permit(:status, :message, :alert).tap do |while_listed|
+            while_listed[:metadata] = params[:event][:metadata]
+          end
         end
 
     end
