@@ -24,7 +24,7 @@ module Api
         if @event.save
           render @event.as_json, status: :created
           #render json: @event, status: :created
-          EventMailer.delay.notify_members(@event) if @event.alert?
+          EventMailer.notify_members(@event).deliver_later if @event.alert?
         else
           render json: @event.errors, status: 422
           puts "**** #{@event.errors.full_messages.to_sentence} ****"
