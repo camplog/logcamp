@@ -5,7 +5,7 @@ class EventMailer < ActionMailer::Base
   # Subject can be set in your I18n file at config/locales/en.yml
   # with the following lookup:
   #
-  #   en.event_mailer.notify_members.subject
+  # en.event_mailer.notify_members.subject
   #
   def notify_members(event)
     @event = event
