@@ -58,7 +58,7 @@ gem 'pg_search', '~> 0.7.8'
 gem 'kaminari', '~> 1.0.0.alpha', github: 'amatsuda/kaminari'
 
 group :development, :test do
-  gem 'debugger'
+  # gem 'debugger'
 end
 
 group :development do
@@ -66,6 +66,7 @@ group :development do
   gem 'letter_opener'
   gem 'better_errors', '~> 2.0'
   gem 'web-console', '~> 2.0.0.beta4'
+  gem "rails-erd"
   # gem 'i18n-debug'
 end
 

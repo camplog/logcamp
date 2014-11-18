@@ -32,9 +32,8 @@ module Api
       end
 
       private
-
         def safe_params
-          params.require(:event).permit(:status, :message, :alert, :metadata)
+          params.require(:event).permit(:status, :message, :alert, metadata: [:color, :sport, :age,:fruit])
         end
 
     end
