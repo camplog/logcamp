@@ -11,10 +11,10 @@
   <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
 </head>
 <body>
-  <%= render 'header' %>
+  <%= render 'pages/header' %>
   <%= yield :splash if content_for?(:splash) %>
-	<div class="content-wrapper">
+  <%= content_tag :div, class: content_for?(:splash) ? 'content-wrapper' : 'content-basic' do %>
     <%= yield %>
-  </div>
+  <% end %>
 </body>
 </html>

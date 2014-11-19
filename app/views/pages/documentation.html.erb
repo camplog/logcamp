@@ -1,8 +1,31 @@
-<%= content_for :page_title do %>Docs.<% end %>
+<%= page_title 'Docs.' %>
 
 <div class="content">
   <ol>
-    <li>Install the <i>logcamp gem</i> in your project</li>
-    <li>Fire events</li>
+  	<li>The very first step is to <%= link_to 'sign up', signup_path %> and create a new application. In return, you will receive a unique token identifying your app when sending data.</li>
+    <li>
+    	Install the <i>logcamp gem</i> in your project.
+<pre>gem install logcamp</pre>
+    </li>
+    <li>
+    	Initialize your application with the token created
+<pre>
+Logcamp.token = 'application_token'
+</pre>
+    </li>
+    <li>
+    	Fire events from your application
+<pre>
+Logcamp::Event.create(
+  status: 'success',
+  message: 'Reminder sent to finances group',
+  alert: true,
+  metadata: {
+    key1: value1,
+    key2: value2
+  }
+)
+</pre>
+    </li>
   </ol>
 </div>

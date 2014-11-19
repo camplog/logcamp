@@ -1,0 +1,74 @@
+@import "variables";
+/*
+ * Pages
+ * --------------------------------------------------
+ */
+.content-basic {
+	max-width: 768px;
+  margin-top: 100px;
+  margin-left: auto;
+	margin-right: auto;
+
+	.page-title {
+		font-family: "omnes-pro", sans-serif;
+		margin: 0 auto;
+		padding: 1em;
+		text-align: center;
+		border-bottom: 1px solid #eee;
+		background: #fff;
+
+		h1 {
+			font-size: 350%;
+			font-weight: 100;
+		}
+	}
+
+	.content {
+		padding-left: 2em;
+    padding-right: 2em;
+	}
+}
+
+// Login pages
+.form-signin {
+	max-width: 300px;
+	margin-left: auto;
+	margin-right: auto;
+
+	.pure-checkbox {
+		input[type="checkbox"] {
+			width: auto;
+		}
+	}
+}
+
+/*
+ * Buttons
+ * --------------------------------------------------
+ */
+.pure-button-outline {
+	border: 3px solid white;
+	padding: 1em;
+	font-weight: 100;
+	border-radius: 5px;
+	line-height: 1.2em;
+	text-decoration: none;
+
+	&.pure-button-primary {
+    border-color: $blue;
+
+    &:hover {
+    	background: $blue;
+    	color: #fff;
+    }
+	}
+}
+
+/*
+ * Code
+ * --------------------------------------------------
+ */
+pre {
+ 	background-color: #f2f2f2;
+ 	color: #333;
+ }

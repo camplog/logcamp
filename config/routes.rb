@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   # USER ROUTES
   # ----------------------------------------------------------------------------
-  get    'logout'               => 'sessions#destroy',     as: 'logout'
+  post   'logout'               => 'sessions#destroy',     as: 'logout'
   get    'login'                => 'sessions#new',         as: 'login'
   get    'signup'               => 'registrations#new',    as: 'signup'
   get    'profile'              => 'registrations#edit',   as: 'profile'
@@ -55,8 +55,10 @@ Rails.application.routes.draw do
     get 'search', on: :collection
   end
   resources :searches
-  get 'feed', to: 'events#index', as: :feed
-  get 'docs', to: 'pages#documentation', as: :documentation
+  get 'feed',    to: 'events#index',        as: :feed
+  get 'docs',    to: 'pages#documentation', as: :documentation
+  get 'about',   to: 'pages#about',         as: :about
+  get 'contact', to: 'pages#contact',       as: :contact
 
   root 'pages#home'
 

@@ -136,7 +136,9 @@
 .pure-badge-all-good,
 .pure-badge-good,
 .pure-badge-positive,
-.pure-badge-excellent {
+.pure-badge-excellent,
+.pure-badge-success,
+.pure-badge-succes, {
 	background-color: $green;
 }
 
@@ -155,7 +157,8 @@
 .pure-badge-achtung,
 .pure-badge-serious,
 .pure-badge-injury,
-.pure-badge-hot {
+.pure-badge-hot,
+.pure-badge-error {
 	background-color: $red;
 }
 

@@ -13,11 +13,11 @@ class EventMailer < ActionMailer::Base
     case @event.status
     when 'log', 'debug', 'warm', 'warning'
       'e78c05' # orange
-    when 'victory', 'all-good', 'good', 'positive', 'excellent'
+    when 'victory', 'all-good', 'good', 'positive', 'excellent', 'success'
       '53b44f' # green
     when 'information', 'news', 'new', 'cold'
       '12a9da' # light-blue
-    when 'failure', 'fail', 'exception', 'danger', 'fire', 'achtung', 'serious', 'injury', 'hot'
+    when 'failure', 'fail', 'exception', 'danger', 'fire', 'achtung', 'serious', 'injury', 'hot', 'error'
       'e9322d' # red
     when 'special'
       '563d7c' # purple

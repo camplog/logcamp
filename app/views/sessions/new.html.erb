@@ -1,16 +1,22 @@
-<%= simple_form_for(:session, url: sessions_path, method: :post, html: {class: "form-signin"}) do |f| %>
-  <h2 class="form-signin-heading"><%= t 'sign_in' %></h2>
-  <%= render 'flash' %>
-  <%= f.error_notification %>
+<%= page_title "#{t 'sessions.sign_in'}" %>
 
-  <%= f.input :email, label: false, autofocus: true %>
-  <%= f.input :password, label: false %>
+<div class="content">
+  <%= simple_form_for(:session, url: sessions_path, method: :post, html: {class: 'form-signin'}) do |f| %>
+	  <%= render 'flash' %>
+	  <%= f.error_notification %>
 
-  <label class="checkbox">
-    <%= check_box_tag :remember_me %> <%= t 'remember_me' %>
-  </label>
+	  <%= f.input :email, label: false, autofocus: true %>
+	  <%= f.input :password, label: false %>
 
-  <p><%= f.button :submit, class: "btn btn-lg btn-primary btn-block" %></p>
-<% end %>
+	  <label class="pure-checkbox">
+	    <%= check_box_tag :remember_me %> <%= t 'remember_me' %>
+	  </label>
 
-<p><%#= link_to "#{t 'sessions.login_with_github'}", auth_at_provider_path(provider: :github) %> <span class="pull-right"><%= link_to "#{t 'passwords.forgot'}", new_password_path %></span></p>
+	  <p><%= f.button :submit, class: 'pure-button pure-button-primary' %></p>
+
+		<p>
+			<%#= link_to "#{t 'sessions.login_with_github'}", auth_at_provider_path(provider: :github) %>
+			<span class="pull-right"><%= link_to "#{t 'passwords.forgot'}", new_password_path %></span>
+		</p>
+  <% end %>
+</div>

@@ -1,14 +1,15 @@
-<%= simple_form_for(@user, url: registrations_path, html: {class: 'form-signin'}) do |f| %>
-  <h2 class="form-signin-heading"><%= t 'sessions.sign_up' %></h2>
-  <%= render 'flash' %>
-  <%= f.error_notification %>
+<%= page_title "#{t 'sessions.sign_up'}" %>
 
-  <%= f.input :email, autofocus: true, placeholder: false %>
-  <%= f.input :full_name %>
-  <%= f.input :password, placeholder: false %>
-  <%= f.input :password_confirmation, placeholder: false %>
+<div class="content">
+  <%= simple_form_for(@user, url: registrations_path, html: {class: 'form-signin'}) do |f| %>
+	  <%= render 'flash' %>
+	  <%= f.error_notification %>
 
-  <p><%= f.button :submit, "#{t 'sessions.sign_up'}", class: "btn btn-lg btn-primary btn-block" %></p>
+	  <%= f.input :email, autofocus: true, label: false %>
+	  <%= f.input :full_name, label: false, placeholder: 'Full Name' %>
+	  <%= f.input :password, label: false, hint: false %>
+	  <%= f.input :password_confirmation, label: false, placeholder: 'Password Confirmation' %>
 
-  <!-- <p class="center">or <%#= link_to "#{t 'sessions.login_with_github'}", 'auth/github' %></p> -->
-<% end %>
+	  <p><%= f.button :submit, "#{t 'sessions.sign_up'}", class: "btn btn-lg btn-primary btn-block" %></p>
+	<% end %>
+</div>

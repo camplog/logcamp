@@ -48,6 +48,10 @@ puts "creating events"
 end
 print "\n"
 
+e = Event.first
+e.metadata = {amount: '150.52', products: 'Toy, Car and Basket-Ball', source: 'POS'}
+e.save
+
 puts "creating memberships"
 
 10.times do |i|

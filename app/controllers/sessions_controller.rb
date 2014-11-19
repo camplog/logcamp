@@ -1,6 +1,6 @@
 class SessionsController < ApplicationController
   skip_before_filter :require_login, only: [:new, :create, :destroy]
-  layout 'login', only: [:new, :create]
+  layout 'public', only: [:new, :create]
 
 	def new
 	end
@@ -23,7 +23,7 @@ class SessionsController < ApplicationController
 	end
 
 	def destroy
-	  logout
-	  redirect_to home_url #, notice: "#{t 'sessions.signed_out', default: 'Signed out'}."
+    logout
+	  redirect_to root_url #, notice: "#{t 'sessions.signed_out', default: 'Signed out'}."
 	end
 end
