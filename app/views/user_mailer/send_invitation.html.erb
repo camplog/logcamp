@@ -1,0 +1,9 @@
+<%= content_for :email_body do %>
+
+  <p>Hi, <%= @user.full_name %></p>
+
+  <p>
+    URL: <%= link_to @url, @url %>
+  </p>
+
+<% end %>

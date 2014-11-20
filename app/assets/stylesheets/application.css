@@ -19,5 +19,7 @@
  *= require icomoon
  *= require events
  *= require search
+ *= require_tree ./common
  *= require_self
+
  */

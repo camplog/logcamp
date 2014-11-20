@@ -1,6 +1,10 @@
 class User < ActiveRecord::Base
   authenticates_with_sorcery!
 
+  EMAIL_FORMAT = /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/
+  TOKEN_LENGTH = 32
+  PWD_DEFAULT_LENGTH = 8
+
   # ASSOCIATIONS
   # ------------------------------------------------------------------------------------------------------
   authenticates_with_sorcery! do |config|
@@ -27,7 +31,7 @@ class User < ActiveRecord::Base
   validates_presence_of :password, on: :create
   validates_presence_of :email, :full_name
   validates_uniqueness_of :email
-  validates_format_of :email, with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/
+  validates_format_of :email, with: EMAIL_FORMAT
   validates_length_of :password, minimum: 6, if: :password
   validates_confirmation_of :password, if: :password
 

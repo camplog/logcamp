@@ -78,3 +78,5 @@ end
 
 gem 'delayed_job',                '~> 4.0.3'
 gem 'delayed_job_active_record',  '~> 4.0.2'
+
+gem "i18n-js"

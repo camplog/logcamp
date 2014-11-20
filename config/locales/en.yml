@@ -36,6 +36,8 @@ en:
       subject: Instructions to reset your password
       intro: You You have requested a new password
       action: "To choose a new password, just follow this link"
+    send_invitation:
+      subject: You are invited
   event_mailer:
     notify_members:
       subject: Event received
@@ -45,3 +47,5 @@ en:
         submit: Sign in
       password:
         submit: Reset password
+  invites:
+    send_invitation_success: Invitation is sent

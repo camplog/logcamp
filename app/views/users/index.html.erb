@@ -18,3 +18,15 @@
 <% else %>
   <p class="pure-alert pure-alert-info">No contributors found.</p>
 <% end %>
+
+<div class='invite-app'>
+  <%= form_tag application_invites_path(@application), class: 'pure-form pure-g', id: 'form-invite-app' do %>
+    <%= text_field_tag :email_list, '', class: 'pure-u-4-5', autofocus: true %>
+    <%= button_tag type: 'submit', class: "pure-button pure-button-primary btn btn-lg btn-primary btn-block pure-u-1-5" do %>
+      <%= t('.invite') %>
+    <% end %>
+    <div id="error-msg" class="pure-u-1"></div>
+  <% end %>
+</div>
+
+

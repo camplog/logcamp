@@ -47,8 +47,10 @@ Rails.application.routes.draw do
     resources :users, only: :index do
       post 'manage_membership'
     end
+    resources :invites, only: [:create, :update]
     member do
       get  'members'
+
     end
   end
   resources :events do

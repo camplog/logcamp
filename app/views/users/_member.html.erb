@@ -1,4 +1,9 @@
 <%= content_tag_for :tr, user do %>
   <td><%= user.full_name %></td>
-  <td class="tright"><%= icon_button_link_to '', application_user_manage_membership_path(@application, user), method: :post, remote: true, data: { confirm: "#{ t 'are_you_sure'}"}, icon: 'close', level: 'danger', size: 'xsmall' %></td>
+  <td class="tright">
+    <% if user.sign_in_count <= 0 %>
+      <%= icon_button_link_to t('.resend'), application_invite_path(@application, user), method: :put, size: 'xsmall' %>
+    <% end %>
+    <%= icon_button_link_to '', application_user_manage_membership_path(@application, user), method: :post, remote: true, data: { confirm: "#{ t 'are_you_sure'}"}, icon: 'close', level: 'danger', size: 'xsmall' %>
+  </td>
 <% end %>

@@ -1,0 +1,8 @@
+en:
+  users:
+    index:
+      invite: Invite users
+      validates:
+        list_email: "Invalid email: %{list}"
+    member:
+      resend: Resend invitation

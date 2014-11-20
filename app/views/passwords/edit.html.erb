@@ -5,7 +5,9 @@
   <p><%= t 'email' %>: <b><%= @user.email %></b></p>
   <%= f.input :password, hint: false %>
   <%= f.input :password_confirmation %>
+
   <%= hidden_field_tag :token, @token %>
+  <%= hidden_field_tag :application, @application %>
 
   <%= f.button :submit, "#{t 'passwords.update'}", class: "btn btn-primary btn-block" %>
 <% end %>

@@ -26,4 +26,9 @@ class SessionsController < ApplicationController
     logout
 	  redirect_to root_url #, notice: "#{t 'sessions.signed_out', default: 'Signed out'}."
 	end
+
+  private
+    def increase_login_count(user, credentials)
+      user.increment! :sign_in_count
+    end
 end

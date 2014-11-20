@@ -165,3 +165,11 @@
 .pure-badge-special {
 	background-color: $purple;
 }
+
+input[type="text"].error{
+  border: 1px solid #e9322d !important;
+}
+
+#error-msg{
+  color: #e9322d;
+}
