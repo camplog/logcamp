@@ -2,8 +2,10 @@
 
   <p>Hi, <%= @user.full_name %></p>
 
-  <p>
-    URL: <%= link_to @url, @url %>
-  </p>
+  <p><%= @application.owner.full_name %> invited you to join <%= @application.name %>.</p>
+
+  <p>Click the following link to join.</p>
+
+  <p>URL: <%= link_to @url, @url %></p>
 
 <% end %>

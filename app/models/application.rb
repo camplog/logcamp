@@ -31,7 +31,7 @@ class Application < ActiveRecord::Base
   def self.allowed(object, subject)
     rules = []
     return rules unless subject.instance_of?(Application)
-    rules << :read_application if subject.members.exists?(object)
+    rules << :read_application if subject.members.exists?(object.id)
     rules << :manage_application if subject.owner == object
     rules
   end

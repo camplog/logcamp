@@ -3,6 +3,6 @@ en:
     index:
       invite: Invite users
       validates:
-        list_email: "Invalid email: %{list}"
+        list_email: "Invalid email list: %{list}"
     member:
       resend: Resend invitation

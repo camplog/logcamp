@@ -1,7 +1,9 @@
-<%= simple_form_for(:password, url: password_path, method: :post, html: {class: "form-signin"}) do |f| %>
-  <h2 class="form-signin-heading"><%= t 'passwords.reset' %></h2>
+<%= page_title t('passwords.reset') %>
 
-  <%= f.error_notification %>
-  <%= f.input :email, label: false, autofocus: true %>
-  <p><%= f.button :submit, class: "btn btn-lg btn-primary btn-block" %></p>
-<% end %>
+<div class="content">
+  <%= simple_form_for(:password, url: password_path, method: :post, html: {class: "form-signin"}) do |f| %>
+    <%= f.error_notification %>
+    <%= f.input :email, label: false, autofocus: true %>
+    <p><%= f.button :submit, t('passwords.send_reset_instructions'), class: "btn btn-lg btn-primary btn-block" %></p>
+  <% end %>
+</div>

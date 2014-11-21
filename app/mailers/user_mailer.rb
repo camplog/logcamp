@@ -16,10 +16,13 @@ class UserMailer < ActionMailer::Base
 
   def send_invitation(user, application)
     @user = user
+    @application = application
     @url = if user.reset_password_token
+      # user does not exist, therefore needs to change password before joining
       change_password_url(token: user.reset_password_token, application: application.id)
     else
-      application_users_url application
+      # user found, let's redirect to the app feed
+      application_url(application)
     end
 
     mail(to: user.email)

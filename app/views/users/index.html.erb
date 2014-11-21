@@ -21,10 +21,11 @@
 
 <div class='invite-app'>
   <%= form_tag application_invites_path(@application), class: 'pure-form pure-g', id: 'form-invite-app' do %>
-    <%= text_field_tag :email_list, '', class: 'pure-u-4-5', autofocus: true %>
+    <%= text_field_tag :email_list, '', class: 'pure-u-4-5', autofocus: true, placeholder: 'john@email.com, tom@email.com' %>
     <%= button_tag type: 'submit', class: "pure-button pure-button-primary btn btn-lg btn-primary btn-block pure-u-1-5" do %>
       <%= t('.invite') %>
     <% end %>
+    <p class="pure-u-1 help-block">Separate email addresses with a comma</p>
     <div id="error-msg" class="pure-u-1"></div>
   <% end %>
 </div>

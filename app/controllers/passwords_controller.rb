@@ -1,11 +1,11 @@
 class PasswordsController < ApplicationController
   skip_before_filter :require_login
-  layout 'login'
+  layout 'public'
 
   # request password reset.
   # you get here when the user entered his email in the reset password form and submitted it.
   def create
-    @user = User.find_by_email(params[:password][:email])
+    @user = User.find_by(email: params[:password][:email])
 
     # This line sends an email to the user with instructions on how to reset their password (a url with a random token)
     @user.deliver_reset_password_instructions! if @user

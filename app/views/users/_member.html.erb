@@ -1,5 +1,8 @@
 <%= content_tag_for :tr, user do %>
-  <td><%= user.full_name %></td>
+  <td>
+  	<%= user.full_name %>
+  	<small>(<%= user.email %>)</small>
+  </td>
   <td class="tright">
     <% if user.sign_in_count <= 0 %>
       <%= icon_button_link_to t('.resend'), application_invite_path(@application, user), method: :put, size: 'xsmall' %>

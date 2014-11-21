@@ -8,13 +8,14 @@ en:
     edit: Profile
     update: Update Profile
   passwords:
-    forgot: Forgot password?
-    reset: Reset password
+    forgot: Forgot Password?
+    reset: Reset Password
+    send_reset_instructions: Send reset instructions
     email_address: Email address
-    change: Change password
-    password_hint: New password (min. 6 characters)
-    password_confirmation_hint: Confirm password
-    update: Update password
+    change: Change Password
+    password_hint: New Password (min. 6 characters)
+    password_confirmation_hint: Confirm Password
+    update: Update My Password
     instructions_sent: Instructions sent. Please check your inbox
     password_updated_please_sign_in: Password was successfully updated. Please sign in
   profile:
@@ -48,4 +49,4 @@ en:
       password:
         submit: Reset password
   invites:
-    send_invitation_success: Invitation is sent
+    send_invitation_success: Invitation sent successfully
