@@ -8,7 +8,6 @@ class UsersController < ApplicationController
   end
 
   def manage_membership
-  	redirect_to feed_path unless can?(current_user, :manage_application, @application)
   	@user        = User.find(params[:user_id])
   	@application = Application.find(params[:application_id])
   	if @application.members.exists?(@user.id)
@@ -16,6 +15,11 @@ class UsersController < ApplicationController
     else
       ## TODO
       ## invite user
+    end
+
+    respond_to do |format|
+      format.html { redirect_to feed_path unless can?(current_user, :manage_application, @application) }
+      format.js { redirect_to feed_path unless can?(current_user, :manage_application, @application) }
     end
   end
 

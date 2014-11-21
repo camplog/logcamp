@@ -7,7 +7,7 @@ class SearchesController < ApplicationController
 
   def show
     filtered_applications_ids = current_user.applications.ids
-    @events = Event.search_by_keyword(@search.criteria).where(application_id: filtered_applications_ids).page(params[:page]).per(PER_PAGE)
+    @events = Event.search_by_keyword(@search.criteria).where(application_id: filtered_applications_ids).page(params[:page]).per(15)
   end
 
   def new
