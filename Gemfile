@@ -57,8 +57,10 @@ gem 'six'
 gem 'pg_search', '~> 0.7.8'
 gem 'kaminari', '~> 1.0.0.alpha', github: 'amatsuda/kaminari'
 
-group :development, :test do
-  # gem 'debugger'
+group :test do
+  gem 'rspec-rails', '~> 3.0'
+  gem 'factory_girl_rails', '~> 4.5.0'
+  gem 'database_cleaner', '~> 1.3.0'
 end
 
 group :development do
