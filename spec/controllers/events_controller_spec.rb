@@ -1,33 +1,30 @@
 require "rails_helper"
 
 RSpec.describe EventsController, :type => :controller do
-
-  let(:current_user) { User.first }
+  let(:current_user) { @current_user || User.first }
 
   before do
-    FactoryGirl.create :user
-    @application = FactoryGirl.create :application, name: 'app_logcamp', owner: current_user, members: [current_user]
-  end
+    @current_user = FactoryGirl.create :user
 
-  def load_events call_request
+    # add events for current application
+    @application = FactoryGirl.create :application, name: 'app_logcamp', owner: @current_user, members: [@current_user]
     FactoryGirl.create :event, status: 'success', application: @application
     FactoryGirl.create :event, message: 'logcamp1', application: @application
     FactoryGirl.create :event, metadata: '{"status":"error", "message": ""}', application: @application
 
-    call_request.call 'success'
-    expect(assigns(:events).size).to eq(1)
+    application_owner = FactoryGirl.create :application, name: 'app_logcamp owner', owner: @current_user, members: [@current_user]
+    FactoryGirl.create :event, status: 'success', application: application_owner
+    FactoryGirl.create :event, message: 'logcamp1', application: application_owner
+    FactoryGirl.create :event, metadata: '{"status":"error", "message": ""}', application: application_owner
 
-    call_request.call 'logcamp1'
-    expect(assigns(:events).size).to eq(1)
-
-    call_request.call '{"status":"error"}'
-    expect(assigns(:events).size).to eq(1)
-
-    call_request.call 'app_logcamp'
-    expect(assigns(:events).size).to eq(3)
+    application_other = FactoryGirl.create :application, name: 'app_logcamp other'
+    FactoryGirl.create :event, status: 'success', application: application_other
+    FactoryGirl.create :event, message: 'logcamp1', application: application_other
+    FactoryGirl.create :event, metadata: '{"status":"error", "message": ""}', application: application_other
   end
 
   describe "GET #events/search" do
+
     def call_request query = nil
       xhr :get, :search, query: query
     end
@@ -43,7 +40,17 @@ RSpec.describe EventsController, :type => :controller do
     end
 
     it "load events with query search 'status'" do
-      load_events method(:call_request)
+      call_request 'success'
+      expect(assigns(:events).size).to eq(2)
+
+      call_request 'logcamp1'
+      expect(assigns(:events).size).to eq(2)
+
+      call_request '{"status":"error"}'
+      expect(assigns(:events).size).to eq(2)
+
+      call_request 'app_logcamp'
+      expect(assigns(:events).size).to eq(6)
     end
   end
 
@@ -63,7 +70,17 @@ RSpec.describe EventsController, :type => :controller do
     end
 
     it "load events with query search 'status'" do
-      load_events method(:call_request)
+      call_request 'success'
+      expect(assigns(:events).size).to eq(1)
+
+      call_request 'logcamp1'
+      expect(assigns(:events).size).to eq(1)
+
+      call_request '{"status":"error"}'
+      expect(assigns(:events).size).to eq(1)
+
+      call_request 'app_logcamp'
+      expect(assigns(:events).size).to eq(3)
     end
   end
 
