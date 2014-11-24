@@ -4,7 +4,10 @@
     <ul>
       <% if current_user %>
         <% current_user.applications.order(:name).each do |app| %>
-          <li><%= link_to app.name, app %></li>
+          <li class='app-item'>
+            <%= link_to app.name, app %>
+            <%= icon_link_to '', edit_application_path(app), icon: 'cog' %>
+          </li>
         <% end %>
 
         <!-- <li class="menu-item-divided search-item-divider"><%#= link_to "Save search", new_search_path %></li> -->
