@@ -200,30 +200,6 @@ small screens.
   margin-top: 0.6em;
 }
 
-.app-item{
-  &:hover{
-    background-color: #333;
-    a:last-child{
-      display: inline-block;
-    }
-  }
-  a{
-    display: inline-block;
-  }
-
-  a:first-child{
-    width: 195px;
-  }
-
-  a:last-child{
-    float: right;
-    width: 30px;
-    display: none;
-  }
-}
-
-
-
 
 /* -- Responsive Styles (Media Queries) ------------------------------------- */
 

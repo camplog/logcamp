@@ -56,6 +56,10 @@ gem 'ffaker'
 gem 'six'
 gem 'pg_search', '~> 0.7.8'
 gem 'kaminari', '~> 1.0.0.alpha', github: 'amatsuda/kaminari'
+gem 'delayed_job',                '~> 4.0.3'
+gem 'delayed_job_active_record',  '~> 4.0.2'
+gem 'i18n-js'
+
 
 group :test do
   gem 'rspec-rails', '~> 3.0'
@@ -77,8 +81,3 @@ group :production do
   gem 'unicorn'
   gem 'rails_12factor'
 end
-
-gem 'delayed_job',                '~> 4.0.3'
-gem 'delayed_job_active_record',  '~> 4.0.2'
-
-gem "i18n-js"
