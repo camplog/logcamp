@@ -5,9 +5,8 @@
  */
 .content-basic {
 	max-width: 768px;
-  margin-top: 100px;
-  margin-left: auto;
-	margin-right: auto;
+	margin: 100px auto;
+
 
 	.page-title {
 		font-family: "omnes-pro", sans-serif;
@@ -39,6 +38,20 @@
 		input[type="checkbox"] {
 			width: auto;
 		}
+	}
+}
+
+/*
+ * Forms
+ * --------------------------------------------------
+ */
+.has-error {
+	input {
+		margin-bottom: 0 !important;
+	}
+	.help-block {
+		color: $red;
+		font-size: 14px;
 	}
 }
 

@@ -2,19 +2,20 @@
 
 <div class="content">
   <ol>
-  	<li>The very first step is to <%= link_to 'sign up', signup_path %> and create a new application. In return, you will receive a unique token identifying your app when sending data.</li>
+  	<li>The very first step is to <%= link_to 'sign up', signup_path %> and create a new application. In return, you will receive a unique token identifying your project</li>
     <li>
-    	Install the <i>logcamp gem</i> in your project.
-<pre>gem install logcamp</pre>
+    	Install the <i>logcamp gem</i> in your project
+<pre>gem 'logcamp'
+bundle install</pre>
     </li>
     <li>
-    	Initialize your application with the token created
+    	In your project, initialize your application with the token created
 <pre>
 Logcamp.token = 'application_token'
 </pre>
     </li>
     <li>
-    	Fire events from your application
+    	Fire events from your project
 <pre>
 Logcamp::Event.create(
   status: 'success',
@@ -29,3 +30,37 @@ Logcamp::Event.create(
     </li>
   </ol>
 </div>
+
+<h3>Details</h3>
+<table class="pure-table" style="width:100%;">
+  <thead>
+    <tr>
+      <th>Field</th>
+      <th>Type</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+
+  <tbody>
+      <tr>
+        <td>Status</td>
+        <td>String</td>
+        <td>Required. Status is meant to prioritize events.</td>
+      </tr>
+      <tr>
+        <td>Message</td>
+        <td>Text</td>
+        <td>Required. Use it to describe event.</td>
+      </tr>
+      <tr>
+        <td>Alert</td>
+        <td>Boolean</td>
+        <td>Default to false. It triggers an email notification if set to true</td>
+      </tr>
+      <tr>
+        <td>Metadata</td>
+        <td>Array</td>
+        <td>Array of Key, Value pairs. Optional. Send anything, use it to provide context or any additional information about order, user, achievement...</td>
+      </tr>
+  </tbody>
+</table>

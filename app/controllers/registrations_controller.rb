@@ -13,7 +13,7 @@ class RegistrationsController < ApplicationController
 	  	auto_login(@user)
       UserMailer.welcome(@user).deliver_now
 
-      redirect_to root_url
+      redirect_to feed_url
     else
      render :new
 	  end
@@ -35,7 +35,7 @@ class RegistrationsController < ApplicationController
       if @user.update(safe_params)
         format.html { redirect_to profile_url, notice: "#{t 'profile.updated', default: 'Profile was successfully updated'}." }
       else
-        format.html { render action: "edit" }
+        format.html { render :edit }
       end
     end
 	end

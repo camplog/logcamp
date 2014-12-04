@@ -7,7 +7,6 @@
   <%= stylesheet_link_tag    'public', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
-  <link rel="stylesheet" href="//yui.yahooapis.com/pure/0.5.0/grids-responsive-min.css">
   <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
 </head>
 <body>
@@ -16,5 +15,6 @@
   <%= content_tag :div, class: content_for?(:splash) ? 'content-wrapper' : 'content-basic' do %>
     <%= yield %>
   <% end %>
+  <%= render 'pages/footer' %>
 </body>
 </html>

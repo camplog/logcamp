@@ -4,22 +4,27 @@
     <ul>
       <% if current_user %>
         <% current_user.applications.order(:name).each do |app| %>
-          <li class='app-item'>
+          <li class='list-icon'>
             <%= link_to app.name, app %>
             <%= icon_link_to '', edit_application_path(app), icon: 'cog' %>
           </li>
         <% end %>
 
-        <!-- <li class="menu-item-divided search-item-divider"><%#= link_to "Save search", new_search_path %></li> -->
-        <% current_user.searches.order(:name).each do |search| %>
-          <li class="search-item">
-            <%= label_link_to search.name, search, label: search.color %>
-          </li>
-        <% end %>
+        <li class="menu-item-divided search-item-divider">
+          <% if current_user.searches_count > 0  %>
+            <% current_user.searches.order(:name).each do |search| %>
+              <li class="list-icon">
+                <%= label_link_to search.name, search, label: search.color %>
+                <%= icon_link_to '', edit_search_path(search), icon: 'cog' %>
+              </li>
+            <% end %>
+          <% else %>
+            <li><%= link_to 'Save Custom Search', new_search_path %></li>
+          <% end %>
 
         <!-- pure-menu-selected -->
         <li class="menu-item-divided"><%= icon_link_to 'My Applications', applications_path, icon: 'cog' %></li>
-        <li><%= icon_link_to "Documentation", documentation_path, icon: 'book' %></li>
+        <li><%= icon_link_to 'Documentation', documentation_path, icon: 'book' %></li>
 
         <li class="menu-item-divided"><%= icon_link_to current_user.full_name, profile_path, icon: 'user' %></li>
         <li><%= icon_link_to "#{t 'sessions.sign_out'}", logout_path, method: :post, icon: 'exit' %></li>

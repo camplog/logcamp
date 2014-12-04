@@ -5,3 +5,4 @@ production:
   SMTP_USERNAME: ''
   SMTP_PASSWORD: ''
   DEFAULT_EMAIL_SENDER: 'app@email.com'
+  CONTACT_EMAIL: 'contact@domain.com'

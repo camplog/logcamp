@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-ruby '2.0.0'
+ruby '2.1.5'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.0.beta4'
@@ -40,9 +40,8 @@ gem 'spring',        group: :development
 # gem 'debugger', group: [:development, :test]
 
 
-gem 'simple_form', '~> 3.1.0.rc2'
+gem 'simple_form', '~> 3.1.0'
 gem 'nested_form'
-# gem 'rails_bootstrap_helper', '~> 1.0.1', github: 'olimart/rails_bootstrap_helper', branch: 'bs3.1'
 gem 'tabs_on_rails', '~> 2.1.1'
 gem 'thin'
 gem 'figaro', '~> 1.0.0', github: 'laserlemon/figaro'
@@ -72,7 +71,7 @@ group :development do
   gem 'letter_opener'
   gem 'better_errors', '~> 2.0'
   gem 'web-console', '~> 2.0.0.beta4'
-  gem "rails-erd"
+  gem 'rails-erd'
   # gem 'i18n-debug'
 end
 

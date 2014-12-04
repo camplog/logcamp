@@ -8,7 +8,7 @@
     <thead>
       <tr>
         <th>Name</th>
-        <th>Token</th>
+        <th>Auth Token</th>
         <th></th>
         <th></th>
       </tr>
@@ -19,7 +19,7 @@
         <tr>
           <td><%= link_to application.name, edit_application_path(application) %></td>
           <td><%= application.auth_token %></td>
-          <td><%= button_link_to "Members", application_users_path(application), level: 'primary', size: 'small' %></td>
+          <td><%= button_link_to 'Members', application_users_path(application), level: 'primary', size: 'small' %></td>
           <td><%= link_to 'Destroy', application, method: :delete, data: { confirm: "#{ t 'are_you_sure'}"}, class: 'pure-button pure-button-danger pure-button-small' if application.is_owner?(current_user) %></td>
         </tr>
       <% end %>

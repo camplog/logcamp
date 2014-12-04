@@ -1,9 +1,8 @@
-
 <%= simple_form_for(@search) do |f| %>
   <%= f.error_notification %>
 
   <div class="form-inputs">
-  	<%= f.input :name %>
+  	<%= f.input :name, autofocus: true %>
     <div class="pure-control-group string required search_name">
       <%= f.label :color %>
       <ul class="color-picker">
@@ -23,5 +22,6 @@
 
   <div class="form-actions">
     <%= f.button :submit %>
+    <%= link_to 'Destroy', @search, method: :delete, data: { confirm: "#{ t 'are_you_sure'}"}, class: 'pure-button pure-button-danger pull-right' unless @search.new_record? %>
   </div>
 <% end %>

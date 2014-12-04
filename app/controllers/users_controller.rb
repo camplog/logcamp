@@ -4,7 +4,7 @@ class UsersController < ApplicationController
   def index
     @application = Application.includes(:members).find(params[:application_id])
     @members = @application.members.exclude_users(current_user.id)
-    redirect_to feed_path unless can?(current_user, :read_application, @application)
+    redirect_to feed_path unless can?(current_user, :manage_application, @application)
   end
 
   def manage_membership
