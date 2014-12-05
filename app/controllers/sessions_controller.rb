@@ -6,17 +6,13 @@ class SessionsController < ApplicationController
 	end
 
 	def create
-	  if params[:session]
-	    user = login(params[:session][:email], params[:session][:password], params[:session][:remember_me])
-    end
+	  user = login(params[:session][:email], params[:session][:password], params[:session][:remember_me])
 
-    respond_to do |format|
-      if user
-		  	format.html { redirect_back_or_to feed_url }
-		  else
-			  format.html { render :new }
-			  flash.now.alert = "#{t 'sessions.error', default: 'Invalid email/password combination'}."
-		  end
+    if user
+	  	redirect_back_or_to feed_url
+	  else
+		  flash.now.alert = "#{t 'sessions.error', default: 'Invalid email/password combination'}."
+	    render :new
     end
 	end
 
