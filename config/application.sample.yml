@@ -1,4 +1,5 @@
 production:
+  DOMAIN: ''
   GITHUB_KEY: ''
   GITHUB_SECRET: ''
   SMTP_HOST: 'smtp.mandrillapp.com'
