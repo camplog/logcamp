@@ -35,7 +35,7 @@ en:
       subject: Welcome
     reset_password_email:
       subject: Instructions to reset your password
-      intro: You You have requested a new password
+      intro: You have requested a new password
       action: "To choose a new password, just follow this link"
     send_invitation:
       subject: You are invited

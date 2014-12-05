@@ -1,11 +1,9 @@
 <%= content_for :email_body do %>
-
   <p>Hi, <%= @user.full_name %></p>
 
   <p><%= @application.owner.full_name %> invited you to join <%= @application.name %>.</p>
 
-  <p>Click the following link to join.</p>
+  <p>Click the following link to access <%= @application.name %> feed.</p>
 
-  <p>URL: <%= link_to @url, @url %></p>
-
+  <p><%= link_to @url, @url %></p>
 <% end %>

@@ -1,5 +1,13 @@
-<h1>UserMailer#welcome</h1>
+<%= content_for :email_intro do %>
+  Welcome
+<% end %>
 
-<p>
-  Hi <%= @user.full_name %>, find me in app/views/user_mailer/welcome.html.erb
-</p>
+<%= content_for :email_body do %>
+  Hi <%= @user.full_name %>, thanks for joining.
+
+  <p>Feel free to get in touch should you require any help.</p>
+<% end %>
+
+<%= content_for :email_call_to_action do %>
+  <%= link_to "View My Feed", feed_url %>
+<% end %>

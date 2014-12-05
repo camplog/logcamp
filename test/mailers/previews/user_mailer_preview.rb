@@ -8,4 +8,14 @@ class UserMailerPreview < ActionMailer::Preview
     UserMailer.send_invitation(user, application)
   end
 
+  def welcome
+    user = User.first
+    UserMailer.welcome(user)
+  end
+
+  def reset_password_email
+    user = User.first
+    UserMailer.reset_password_email(user)
+  end
+
 end
