@@ -11,7 +11,7 @@ class RegistrationsController < ApplicationController
 
 	  if @user.save
 	  	auto_login(@user)
-      UserMailer.welcome(@user).deliver_now
+      UserMailer.welcome(@user).deliver_later
 
       redirect_to feed_url
     else
