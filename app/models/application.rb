@@ -23,17 +23,14 @@ class Application < ActiveRecord::Base
   # CALLBACKS
   # ------------------------------------------------------------------------------------------------------
   before_create  :format_fields
+  after_create   :add_owner_as_member
   before_destroy { members.clear }
 
 
   # INSTANCE METHODS
   # ------------------------------------------------------------------------------------------------------
-  def self.allowed(object, subject)
-    rules = []
-    return rules unless subject.instance_of?(Application)
-    rules << :read_application if subject.members.exists?(object.id)
-    rules << :manage_application if subject.owner == object
-    rules
+  def is_owner?(user)
+    owner == user
   end
 
   private
@@ -41,6 +38,18 @@ class Application < ActiveRecord::Base
     def format_fields
     	self.auth_token = SecureRandom.hex
       self.identicon  = Identicon.data_url_for name, 128, [255, 255, 255]
+    end
+
+    def self.allowed(object, subject)
+      rules = []
+      return rules unless subject.instance_of?(Application)
+      rules << :read_application if subject.members.exists?(object.id)
+      rules << :manage_application if subject.owner == object
+      rules
+    end
+
+    def add_owner_as_member
+      members << owner
     end
 
 end

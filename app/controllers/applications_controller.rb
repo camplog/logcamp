@@ -23,7 +23,6 @@ class ApplicationsController < ApplicationController
   def create
     @application = current_user.applications.new(safe_params)
     @application.owner_id = current_user.id
-    @application.members << current_user unless @application.members.exists?(current_user.id)
 
     respond_to do |format|
       if @application.save

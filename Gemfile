@@ -3,7 +3,7 @@ source 'https://rubygems.org'
 ruby '2.1.5'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.2.0rc1'
+gem 'rails', '4.2.0rc2'
 # Use postgresql as the database for Active Record
 gem 'pg'
 # Use SCSS for stylesheets
@@ -45,7 +45,7 @@ gem 'nested_form'
 gem 'tabs_on_rails', '~> 2.1.1'
 gem 'thin'
 gem 'figaro', '~> 1.0.0', github: 'laserlemon/figaro'
-gem 'sorcery', '~> 0.8.6', ref: '6579b8eb341878397a4848b3656a682396a02ad8'
+gem 'sorcery', github: 'NoamB/sorcery', ref: 'ef00bc866d315759470d05d0113b0d69f6cb80f2'
 gem 'omniauth'
 gem 'omniauth-github'
 gem 'identicon'

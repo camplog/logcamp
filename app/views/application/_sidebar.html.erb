@@ -6,7 +6,7 @@
         <% current_user.applications.order(:name).each do |app| %>
           <li class='list-icon'>
             <%= link_to app.name, app %>
-            <%= icon_link_to '', edit_application_path(app), icon: 'cog' %>
+            <%= icon_link_to '', edit_application_path(app), icon: 'cog' if app.is_owner?(current_user) %>
           </li>
         <% end %>
 
