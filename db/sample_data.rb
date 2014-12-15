@@ -11,7 +11,9 @@ puts "creating users"
   user = User.create!(
     email: "user#{u}@gmail.com",
     full_name: [Faker::Name.first_name, Faker::Name.last_name].join(' '),
-    password: "123123"
+    password: "123123",
+    activation_state: 'active',
+    activation_token: nil
   )
 end
 print "\n"

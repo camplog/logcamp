@@ -4,6 +4,8 @@
   <p><%= @application.owner.full_name %> invited you to join <%= @application.name %>.</p>
 
   <p>Click the following link to access <%= @application.name %> feed.</p>
+<% end %>
 
-  <p><%= link_to @url, @url %></p>
+<%= content_for :email_call_to_action do %>
+  <%= link_to @url, @url %>
 <% end %>

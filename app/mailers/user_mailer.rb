@@ -28,4 +28,9 @@ class UserMailer < ActionMailer::Base
     mail(to: user.email)
   end
 
+  def activation_needed_email(user)
+    @user = user
+    mail(to: user.email)
+  end
+
 end

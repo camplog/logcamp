@@ -2,21 +2,22 @@ Rails.application.routes.draw do
 
   # USER ROUTES
   # ----------------------------------------------------------------------------
-  post   'logout'               => 'sessions#destroy',     as: 'logout'
-  get    'login'                => 'sessions#new',         as: 'login'
-  get    'signup'               => 'registrations#new',    as: 'signup'
-  get    'profile'              => 'registrations#edit',   as: 'profile'
-  post   'profile'              => 'registrations#update', as: 'update_profile'
-  get    'paswords/:token/edit' => 'passwords#edit',       as: 'change_password'
+  post   'logout'               , to: 'sessions#destroy',       as: 'logout'
+  get    'login'                , to: 'sessions#new',           as: 'login'
+  get    'signup'               , to: 'registrations#new',      as: 'signup'
+  get    'profile'              , to: 'registrations#edit',     as: 'profile'
+  post   'profile'              , to: 'registrations#update',   as: 'update_profile'
+  get    'paswords/:token/edit',  to: 'passwords#edit',         as: 'change_password'
+  get    'users/:token/activate', to: 'registrations#activate', as: 'activate_user'
   resource  :password,        only: [:new, :create, :edit, :update]
   resources :registrations, except: [:index, :show, :destroy]
   resources :sessions
 
   # OAUTH ROUTES
   # ----------------------------------------------------------------------------
-  #post '/oauth/request_token',    to: 'oauths#new'
-  #get '/auth/:provider/callback', to: 'oauths#callback'
-  #get '/auth/failure',            to: 'oauths#failure'
+  # post '/oauth/request_token',    to: 'oauths#new'
+  # get '/auth/:provider/callback', to: 'oauths#callback'
+  # get '/auth/failure',            to: 'oauths#failure'
 
   post 'auth/callback',          to: 'oauths#callback'
   get 'auth/callback',           to: 'oauths#callback'

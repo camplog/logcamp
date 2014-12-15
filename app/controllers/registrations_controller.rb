@@ -1,5 +1,5 @@
 class RegistrationsController < ApplicationController
-  before_filter :require_login, only: [:edit, :update]
+  skip_before_action :require_login, only: [:new, :create, :activate]
   layout 'public', only: [:new, :create]
 
   def new
@@ -10,9 +10,8 @@ class RegistrationsController < ApplicationController
 	  @user = User.new(safe_params)
 
 	  if @user.save
+      # user activation enabled therefore an email is sent to confirm identity
 	  	auto_login(@user)
-      UserMailer.welcome(@user).deliver_later
-
       redirect_to feed_url
     else
      render :new
@@ -39,6 +38,16 @@ class RegistrationsController < ApplicationController
       end
     end
 	end
+
+  def activate
+    if (@user = User.load_from_activation_token(params[:token]))
+      @user.activate!
+      redirect_to(login_path, notice: 'Account was successfully activated, you can now sign in.')
+      UserMailer.welcome(@user).deliver_later(wait_until: 3.days.from_now)
+    else
+      not_authenticated
+    end
+  end
 
   private
 

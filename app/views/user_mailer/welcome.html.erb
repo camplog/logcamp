@@ -1,11 +1,13 @@
 <%= content_for :email_intro do %>
-  Welcome
+  How things going with <%= t 'site_name' %>
 <% end %>
 
 <%= content_for :email_body do %>
-  Hi <%= @user.full_name %>, thanks for joining.
+  Hi <%= @user.full_name %>, thanks again for joining.
 
-  <p>Feel free to get in touch should you require any help.</p>
+  <p>We hope you're getting the most out of your very own feed.</p>
+
+  <p>Feel free to get in touch should you require any help, we're here to help.</p>
 <% end %>
 
 <%= content_for :email_call_to_action do %>

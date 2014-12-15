@@ -31,6 +31,8 @@ en:
   mailers:
     signature: Have a great day!
   user_mailer:
+    activation_needed_email:
+      subject: Welcome
     welcome:
       subject: Welcome
     reset_password_email:
