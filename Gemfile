@@ -58,9 +58,12 @@ group :development do
   gem 'web-console', '~> 2.0'
   gem 'rails-erd'
   gem 'byebug'
-  gem 'capistrano', '~> 3.3.0'
-  gem 'capistrano-rails', '~> 1.1'
-  gem 'capistrano-nc', '~> 0.1'
+  gem 'capistrano', '~> 2.15.5'
+  # gem 'capistrano-rails', '~> 1.1'
+  # gem 'capistrano-nc', '~> 0.1'
+  # gem 'capistrano-rbenv', '~> 2.0'
+  # gem 'capistrano3-unicorn'
+  # gem 'capistrano-nginx-unicorn'
   # gem 'i18n-debug'
 end
 

@@ -1,4 +1,5 @@
 production:
+  SECRET_KEY_BASE: ''
   DOMAIN: ''
   GITHUB_KEY: ''
   GITHUB_SECRET: ''
