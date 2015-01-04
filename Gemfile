@@ -3,11 +3,11 @@ source 'https://rubygems.org'
 ruby '2.1.5'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.2.0rc2'
+gem 'rails', '4.2.0'
 # Use postgresql as the database for Active Record
 gem 'pg'
 # Use SCSS for stylesheets
-gem 'sass-rails', '~> 4.0'
+gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .js.coffee assets and views
@@ -22,8 +22,7 @@ gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
-gem 'sdoc', '~> 0.4.0',          group: :doc
-
+gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'simple_form', '~> 3.1.0'
 gem 'nested_form'
@@ -40,8 +39,8 @@ gem 'ffaker'
 gem 'six'
 gem 'pg_search', '~> 0.7.8'
 gem 'kaminari', '~> 1.0.0.alpha', github: 'amatsuda/kaminari'
-gem 'delayed_job',                '~> 4.0.3'
-gem 'delayed_job_active_record',  '~> 4.0.2'
+gem 'delayed_job',               '~> 4.0.3'
+gem 'delayed_job_active_record', '~> 4.0.3'
 gem 'i18n-js'
 
 group :test do
