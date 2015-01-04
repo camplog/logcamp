@@ -44,9 +44,16 @@ gem 'delayed_job_active_record', '~> 4.0.3'
 gem 'i18n-js'
 
 group :test do
-  gem 'rspec-rails', '~> 3.0'
-  gem 'factory_girl_rails', '~> 4.5.0'
-  gem 'database_cleaner', '~> 1.3.0'
+  # gem 'rspec-rails', '~> 3.2.0.pre', github: 'rspec/rspec-rails'
+  # gem 'rspec-support', '~> 3.2.0.pre', github: 'rspec/rspec-support'
+  # gem 'rspec-expectations', '~> 3.2.0.pre', github: 'rspec/rspec-expectations'
+  # gem 'rspec-mocks', '~> 3.2.0.pre', github: 'rspec/rspec-mocks'
+  # gem 'rspec-core', '~> 3.2.0.pre', github: 'rspec/rspec-core'
+  # gem 'factory_girl_rails', '~> 4.5.0'
+  # gem 'database_cleaner', '~> 1.3.0'
+
+  gem 'minitest-rails-capybara'
+  gem 'minitest-reporters'
 end
 
 group :development do
@@ -70,4 +77,5 @@ group :production do
   gem 'exception_notification', '~> 4.0.0'
   gem 'unicorn'
   gem 'rails_12factor'
+  gem 'daemons'
 end

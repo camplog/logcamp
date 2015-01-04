@@ -1,4 +1,5 @@
 require 'bundler/capistrano'
+require 'delayed/recipes'
 
 server '50.116.63.166', :web, :app, :db, primary: true
 
@@ -7,6 +8,7 @@ set :user, 'deployer'
 set :deploy_to, "/home/#{user}/apps/#{application}"
 set :deploy_via, :remote_cache
 set :use_sudo, false
+set :rails_env, 'production'
 
 set :scm, 'git'
 set :repository, 'git@bitbucket.org:olimart/logcamp.git'
@@ -19,6 +21,7 @@ after 'deploy:setup', 'init:set_permissions'
 after 'deploy:setup', 'init:config_files'
 after 'deploy:setup', 'init:setup_config'
 # after 'deploy:restart', 'deploy:restart_sidekiq'
+after 'deploy:restart', 'delayed_job:restart'
 
 after 'deploy', 'deploy:cleanup' # keep only the last 5 releases
 
