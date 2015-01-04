@@ -128,7 +128,11 @@
 .pure-badge-log,
 .pure-badge-debug,
 .pure-badge-warm,
-.pure-badge-warning {
+.pure-badge-warning,
+.pure-badge-inactive,
+.pure-badge-deactivated,
+.pure-badge-pause,
+.pure-badge-hold {
 	background-color: $orange;
 }
 
@@ -138,14 +142,27 @@
 .pure-badge-positive,
 .pure-badge-excellent,
 .pure-badge-success,
-.pure-badge-succes, {
+.pure-badge-succes,
+.pure-badge-active,
+.pure-badge-activated,
+.pure-badge-created,
+.pure-badge-granted,
+.pure-badge-on,
+.pure-badge-played,
+.pure-badge-recorded,
+.pure-badge-notified,
+.pure-badge-sent,
+.pure-badge-started,
+.pure-badge-start,
+.pure-badge-resume {
 	background-color: $green;
 }
 
 .pure-badge-information,
 .pure-badge-news,
 .pure-badge-new,
-.pure-badge-cold {
+.pure-badge-cold,
+.pure-badge-archived {
 	background-color: $light-blue;
 }
 
@@ -158,11 +175,18 @@
 .pure-badge-serious,
 .pure-badge-injury,
 .pure-badge-hot,
-.pure-badge-error {
+.pure-badge-error,
+.pure-badge-off,
+.pure-badge-deleted,
+.pure-badge-destroyed,
+.pure-badge-stop,
+.pure-badge-stopped {
 	background-color: $red;
 }
 
-.pure-badge-special {
+.pure-badge-special,
+.pure-badge-misc,
+.pure-badge-magic {
 	background-color: $purple;
 }
 

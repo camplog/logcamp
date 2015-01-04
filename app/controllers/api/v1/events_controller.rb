@@ -33,8 +33,8 @@ module Api
 
       private
         def safe_params
-          params.require(:event).permit(:status, :message, :alert).tap do |while_listed|
-            while_listed[:metadata] = params[:event][:metadata]
+          params.require(:event).permit(:status, :message, :alert).tap do |white_listed|
+            white_listed[:metadata] = params[:event][:metadata]
           end
         end
 
