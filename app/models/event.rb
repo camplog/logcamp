@@ -27,13 +27,16 @@ class Event < ActiveRecord::Base
 
   # CALLBACKS
   # ------------------------------------------------------------------------------------------------------
-  before_save  :format_fields, :sync_keywords
+  before_create :set_date
+  before_save   :format_fields
+  after_save    :sync_keywords
 
 
   # INSTANCE METHODS
   # ------------------------------------------------------------------------------------------------------
   def formatted_date
-    created_at < 1.day.ago ? created_at.strftime("%d/%m %H:%M") : created_at.strftime("%H:%M")
+    event_date = date.present? ? date : created_at
+    event_date < 1.day.ago ? event_date.strftime("%d/%m %H:%M") : event_date.strftime("%H:%M")
   end
 
   private
@@ -42,11 +45,15 @@ class Event < ActiveRecord::Base
       self.status = status.downcase
     end
 
+    def set_date
+      self.date = Time.zone.now unless date.present?
+    end
+
     def sync_keywords
       # keywords are meant to loosen search results
       keywords = []
-      keywords << Time.zone.now.strftime("%d/%m/%Y")
-      keywords << self.application.name.downcase.to_s
+      keywords << date.present? ? self.date.strftime("%d/%m/%Y") : Time.zone.now.strftime("%d/%m/%Y")
+      keywords << application.name.downcase.to_s
       self.keywords = keywords.join(", ")
     end
 

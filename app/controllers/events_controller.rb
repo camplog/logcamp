@@ -84,7 +84,7 @@ class EventsController < ApplicationController
     end
 
     def safe_params
-      params.require(:event).permit(:status, :message)
+      params.require(:event).permit(:status, :message, :date)
     end
 
 end

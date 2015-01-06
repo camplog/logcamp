@@ -11,13 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141119084610) do
+ActiveRecord::Schema.define(version: 20150106190622) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
   enable_extension "unaccent"
 
-  create_table "accounts", force: true do |t|
+  create_table "accounts", force: :cascade do |t|
     t.integer  "owner_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(version: 20141119084610) do
 
   add_index "accounts", ["owner_id"], name: "index_accounts_on_owner_id", using: :btree
 
-  create_table "applications", force: true do |t|
+  create_table "applications", force: :cascade do |t|
     t.string   "name"
     t.string   "slug"
     t.boolean  "active",     default: true
@@ -38,7 +38,7 @@ ActiveRecord::Schema.define(version: 20141119084610) do
 
   add_index "applications", ["owner_id"], name: "index_applications_on_owner_id", using: :btree
 
-  create_table "applications_users", id: false, force: true do |t|
+  create_table "applications_users", id: false, force: :cascade do |t|
     t.integer "application_id"
     t.integer "user_id"
   end
@@ -47,7 +47,7 @@ ActiveRecord::Schema.define(version: 20141119084610) do
   add_index "applications_users", ["application_id"], name: "index_applications_users_on_application_id", using: :btree
   add_index "applications_users", ["user_id"], name: "index_applications_users_on_user_id", using: :btree
 
-  create_table "authentications", force: true do |t|
+  create_table "authentications", force: :cascade do |t|
     t.string   "provider"
     t.string   "uid"
     t.string   "provider_username"
@@ -60,7 +60,7 @@ ActiveRecord::Schema.define(version: 20141119084610) do
   add_index "authentications", ["provider", "uid"], name: "index_authentications_on_provider_and_uid", using: :btree
   add_index "authentications", ["user_id"], name: "index_authentications_on_user_id", using: :btree
 
-  create_table "delayed_jobs", force: true do |t|
+  create_table "delayed_jobs", force: :cascade do |t|
     t.integer  "priority",   default: 0, null: false
     t.integer  "attempts",   default: 0, null: false
     t.text     "handler",                null: false
@@ -76,7 +76,7 @@ ActiveRecord::Schema.define(version: 20141119084610) do
 
   add_index "delayed_jobs", ["priority", "run_at"], name: "delayed_jobs_priority", using: :btree
 
-  create_table "events", force: true do |t|
+  create_table "events", force: :cascade do |t|
     t.string   "status"
     t.text     "message"
     t.json     "metadata"
@@ -85,11 +85,12 @@ ActiveRecord::Schema.define(version: 20141119084610) do
     t.integer  "application_id"
     t.datetime "created_at",                     null: false
     t.datetime "updated_at",                     null: false
+    t.datetime "date"
   end
 
   add_index "events", ["application_id"], name: "index_events_on_application_id", using: :btree
 
-  create_table "pg_search_documents", force: true do |t|
+  create_table "pg_search_documents", force: :cascade do |t|
     t.text     "content"
     t.integer  "searchable_id"
     t.string   "searchable_type"
@@ -97,7 +98,7 @@ ActiveRecord::Schema.define(version: 20141119084610) do
     t.datetime "updated_at",      null: false
   end
 
-  create_table "searches", force: true do |t|
+  create_table "searches", force: :cascade do |t|
     t.string   "name"
     t.string   "color"
     t.string   "criteria"
@@ -108,7 +109,7 @@ ActiveRecord::Schema.define(version: 20141119084610) do
 
   add_index "searches", ["user_id"], name: "index_searches_on_user_id", using: :btree
 
-  create_table "users", force: true do |t|
+  create_table "users", force: :cascade do |t|
     t.string   "email",                                           null: false
     t.string   "full_name"
     t.string   "github_login"
@@ -122,16 +123,11 @@ ActiveRecord::Schema.define(version: 20141119084610) do
     t.string   "reset_password_token"
     t.datetime "reset_password_token_expires_at"
     t.datetime "reset_password_email_sent_at"
-    t.datetime "users"
-    t.string   "activation_state"
-    t.string   "activation_token"
-    t.datetime "activation_token_expires_at"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "sign_in_count",                   default: 0
   end
 
-  add_index "users", ["activation_token"], name: "index_users_on_activation_token", using: :btree
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["remember_me_token"], name: "index_users_on_remember_me_token", using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", using: :btree

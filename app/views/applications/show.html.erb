@@ -1,4 +1,6 @@
-<%= content_for :page_title do %><%= @application.name.titleize %><% end %>
+<%= content_for :page_title do %>
+  <%= @application.name %>
+<% end %>
 
 <% if @application.events.any? %>
   <%= form_tag(search_application_events_path(@application), method: :get, remote: true, id: 'main-search', class: 'pure-form pure-g') do |f| %>
