@@ -24,6 +24,6 @@ class EventMailer < ActionMailer::Base
     else
       '9d988e' # grey
     end
-    mail to: @event.application.members.map(&:email).join(", ")
+    mail(from: "#{event.application.name} <#{ENV['DEFAULT_EMAIL_SENDER']}>", to: @event.application.members.map(&:email).join(", "))
   end
 end
