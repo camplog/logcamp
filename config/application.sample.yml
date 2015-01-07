@@ -10,3 +10,4 @@ production:
   DEFAULT_EMAIL_SENDER: 'app@email.com'
   ADMIN_EMAIL: ''
   CONTACT_EMAIL: 'contact@domain.com'
+  GA_TRACKING_CODE: ''

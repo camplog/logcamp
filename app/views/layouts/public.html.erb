@@ -16,5 +16,8 @@
     <%= yield %>
   <% end %>
   <%= render 'pages/footer' %>
+  <% if Rails.env.production? && @render_shared_scripts == true %>
+    <%= render 'ga_script' %>
+  <% end %>
 </body>
 </html>
