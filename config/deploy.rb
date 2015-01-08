@@ -20,7 +20,7 @@ ssh_options[:forward_agent] = true
 after 'deploy:setup', 'init:set_permissions'
 after 'deploy:setup', 'init:config_files'
 after 'deploy:setup', 'init:setup_config'
-# after 'deploy:restart', 'deploy:restart_sidekiq'
+after 'deploy:restart', 'deploy:restart_sidekiq'
 after 'deploy:restart', 'delayed_job:restart'
 
 after 'deploy', 'deploy:cleanup' # keep only the last 5 releases
