@@ -27,7 +27,6 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'simple_form', '~> 3.1.0'
 gem 'nested_form'
 gem 'tabs_on_rails', '~> 2.1.1'
-gem 'thin'
 gem 'figaro', '~> 1.0.0', github: 'laserlemon/figaro'
 gem 'sorcery', github: 'NoamB/sorcery', ref: 'ef00bc866d315759470d05d0113b0d69f6cb80f2'
 gem 'omniauth'
@@ -39,7 +38,6 @@ gem 'ffaker'
 gem 'six'
 gem 'pg_search', '~> 0.7.8'
 gem 'kaminari', '~> 1.0.0.alpha', github: 'amatsuda/kaminari'
-gem 'i18n-js'
 gem 'sinatra', '>= 1.3.0', require: nil # required to access sidekiq UI
 gem 'sidekiq'
 
@@ -51,7 +49,6 @@ group :test do
   # gem 'rspec-core', '~> 3.2.0.pre', github: 'rspec/rspec-core'
   # gem 'factory_girl_rails', '~> 4.5.0'
   # gem 'database_cleaner', '~> 1.3.0'
-
   gem 'minitest-rails-capybara'
   gem 'minitest-reporters'
 end
@@ -65,17 +62,16 @@ group :development do
   gem 'rails-erd'
   gem 'byebug'
   gem 'capistrano', '~> 2.15.5'
-  # gem 'capistrano-rails', '~> 1.1'
-  # gem 'capistrano-nc', '~> 0.1'
-  # gem 'capistrano-rbenv', '~> 2.0'
-  # gem 'capistrano3-unicorn'
-  # gem 'capistrano-nginx-unicorn'
-  # gem 'i18n-debug'
+  gem 'foreman', require: false
+end
+
+group :development, :test do
+  gem 'thin', require: false
 end
 
 group :production do
   gem 'exception_notification', '~> 4.0.0'
   gem 'unicorn'
   gem 'rails_12factor'
-  gem 'daemons'
+  # gem 'daemons'
 end
