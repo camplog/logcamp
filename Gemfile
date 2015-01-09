@@ -39,7 +39,7 @@ gem 'six'
 gem 'pg_search', '~> 0.7.8'
 gem 'kaminari', '~> 1.0.0.alpha', github: 'amatsuda/kaminari'
 gem 'sinatra', '>= 1.3.0', require: nil # required to access sidekiq UI
-gem 'sidekiq'
+gem 'sidekiq', '~> 3.3.0'
 
 group :test do
   # gem 'rspec-rails', '~> 3.2.0.pre', github: 'rspec/rspec-rails'
