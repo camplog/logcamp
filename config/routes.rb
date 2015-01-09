@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  require 'sidekiq/web'
+  require 'admin_constraint'
 
   # USER ROUTES
   # ----------------------------------------------------------------------------
@@ -29,6 +31,7 @@ Rails.application.routes.draw do
   # ----------------------------------------------------------------------------
   scope module: 'admin', path: 'adm1nistr8tion', as: 'admin' do
     root to: 'dashboard#show', as: :dashboard
+    mount Sidekiq::Web => '/sidekiq', constraints: AdminConstraint.new
   end
 
   # API ROUTES
