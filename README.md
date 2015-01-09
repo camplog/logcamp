@@ -9,7 +9,3 @@
 3. Update secrets.yml
 4. Run rake bs
 5. Start server (foreman start -p 4000)
-
-## Delayed Jobs
-
-To see pending jobs run `Delayed::Job.all` from the console
