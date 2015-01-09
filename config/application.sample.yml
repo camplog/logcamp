@@ -11,3 +11,4 @@ production:
   ADMIN_EMAIL: ''
   CONTACT_EMAIL: 'contact@domain.com'
   GA_TRACKING_CODE: ''
+  SEGMENT_IO_WRITE_KEY: ''

@@ -2,7 +2,7 @@ require 'test_helper'
 
 class PagesControllerTest < ActionController::TestCase
   test "should get docs" do
-    get :docs
+    get :documentation
     assert_response :success
   end
 

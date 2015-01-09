@@ -1,11 +1,11 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  name: MyString
-  auth_token: MyString
-  user_id: 1
+  name: app1
+  auth_token: '111'
+  owner_id: 1
 
 two:
-  name: MyString
-  auth_token: MyString
-  user_id: 1
+  name: app2
+  auth_token: '222'
+  owner_id: 1

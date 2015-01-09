@@ -9,3 +9,9 @@ two:
   message: MyText
   metadata: {'ping': 'pong'}
   application_id: 1
+
+three:
+  status: MyString
+  message: MyText
+  metadata: {'ping': 'pong'}
+  application_id: 2

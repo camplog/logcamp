@@ -12,6 +12,7 @@ module Logcamp
       g.stylesheets  false
       g.javascripts  false
       g.helper       false
+      g.test_framework :minitest, spec: true
     end
 
     # Settings in config/environments/* take precedence over those specified here.

@@ -51,18 +51,18 @@ Rails.application.routes.draw do
     resources :invites, only: [:create, :update]
     member do
       get  'members'
-
     end
   end
+
   resources :events do
     get 'search', on: :collection
   end
   resources :searches
+
   get 'feed',    to: 'events#index',        as: :feed
   get 'docs',    to: 'pages#documentation', as: :documentation
   get 'about',   to: 'pages#about',         as: :about
   get 'contact', to: 'pages#contact',       as: :contact
 
   root 'pages#home'
-
 end
