@@ -11,5 +11,9 @@
 	  <%= f.input :password_confirmation, label: false, placeholder: 'Password Confirmation' %>
 
 	  <p><%= f.button :submit, "#{t 'sessions.sign_up'}", class: "btn btn-lg btn-primary btn-block" %></p>
+    <p>
+      <%= link_to "#{t 'sessions.signup_with_centralid'}", "/auth/centralid" %>
+      <span class="pull-right"><%= link_to "#{t 'sessions.sign_in'}", login_path %></span>
+    </p>
 	<% end %>
 </div>

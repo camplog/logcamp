@@ -49,15 +49,39 @@ class User < ActiveRecord::Base
     "#{full_name} <#{email}>"
   end
 
-  def has_github_account?
-  	authentications.github_accounts.any?
+  def signed_up_with_github?
+  	authentications.github.any?
+  end
+
+  def signed_up_with_centralid?
+    authentications.centralid.any?
+  end
+
+  def active?
+    activation_state == 'active' && activation_token == nil
   end
 
   private
 
-    def format_fields
-      self.email     = email.downcase if email.present?
-      self.full_name = full_name.titleize if full_name.present?
-    end
+  def format_fields
+    self.email     = email.downcase if email.present?
+    self.full_name = full_name.titleize if full_name.present?
+  end
 
+  # Central ID OAuth
+  def self.create_with_omniauth(auth)
+    user = create! do |user|
+      user.full_name   = auth['info']['name']
+      user.email       = auth['info']['email']
+      user.password    = SecureRandom.hex
+      user.authentications.new(
+        provider: auth['provider'],
+        uid:      auth['uid']
+      )
+    end
+    # Activate user manually since Sorcery defaults to 'pending'
+    user.update_attributes(activation_state: 'active', activation_token: nil)
+    UserMailer.welcome(user).deliver_later
+    user
+  end
 end

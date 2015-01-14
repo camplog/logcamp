@@ -10,8 +10,8 @@ class RegistrationsController < ApplicationController
 	  @user = User.new(safe_params)
 
 	  if @user.save
-      # user activation enabled therefore an email is sent to confirm identity
-	  	auto_login(@user)
+      auto_login(@user)
+      UserMailer.activation_needed_email(@user).deliver_later
       redirect_to feed_url
     else
      render :new
@@ -43,7 +43,7 @@ class RegistrationsController < ApplicationController
     if (@user = User.load_from_activation_token(params[:token]))
       @user.activate!
       redirect_to(login_path, notice: 'Account was successfully activated, you can now sign in.')
-      UserMailer.welcome(@user).deliver_later(wait_until: 3.days.from_now)
+      UserMailer.welcome(@user).deliver_later(wait_until: 3.days.from_now) unless @user.signed_up_with_centralid?
     else
       not_authenticated
     end

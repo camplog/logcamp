@@ -1,12 +1,12 @@
 GIT
   remote: git://github.com/NoamB/sorcery.git
-  revision: ef00bc866d315759470d05d0113b0d69f6cb80f2
-  ref: ef00bc866d315759470d05d0113b0d69f6cb80f2
+  revision: 9f72029269c091f00973ef6ebcc4351554deb2f5
+  ref: 9f72029269c091f00973ef6ebcc4351554deb2f5
   specs:
     sorcery (0.8.6)
       bcrypt (~> 3.1)
       oauth (~> 0.4, >= 0.4.4)
-      oauth2 (>= 0.8.0, < 1.0.0)
+      oauth2 (>= 0.8.0)
 
 GIT
   remote: git://github.com/amatsuda/kaminari.git
@@ -112,7 +112,7 @@ GEM
       actionmailer (>= 3.0.4)
       activesupport (>= 3.0.4)
     execjs (2.2.2)
-    faraday (0.9.0)
+    faraday (0.9.1)
       multipart-post (>= 1.2, < 3)
     ffaker (1.25.0)
     foreman (0.76.0)
@@ -182,7 +182,7 @@ GEM
     nokogiri (1.6.5)
       mini_portile (~> 0.6.0)
     oauth (0.4.7)
-    oauth2 (0.9.4)
+    oauth2 (1.0.0)
       faraday (>= 0.8, < 0.10)
       jwt (~> 1.0)
       multi_json (~> 1.3)
@@ -191,13 +191,13 @@ GEM
     omniauth (1.2.2)
       hashie (>= 1.2, < 4)
       rack (~> 1.0)
-    omniauth-github (1.1.2)
-      omniauth (~> 1.0)
-      omniauth-oauth2 (~> 1.1)
-    omniauth-oauth2 (1.1.2)
+    omniauth-centralid (0.1.0)
+      multi_json (~> 1.3)
+      omniauth-oauth2 (~> 1.2.0, >= 1.2.0)
+    omniauth-oauth2 (1.2.0)
       faraday (>= 0.8, < 0.10)
       multi_json (~> 1.3)
-      oauth2 (~> 0.9.3)
+      oauth2 (~> 1.0)
       omniauth (~> 1.2)
     pg (0.18.0)
     pg_search (0.7.8)
@@ -340,8 +340,7 @@ DEPENDENCIES
   minitest-rails-capybara
   minitest-reporters
   nested_form
-  omniauth
-  omniauth-github
+  omniauth-centralid (~> 0.1.0)
   pg
   pg_search (~> 0.7.8)
   rack-cors

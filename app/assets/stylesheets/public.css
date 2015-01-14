@@ -14,5 +14,6 @@
  *= require pure-extra
  *= require pure-grids-responsive.min
  *= require_tree ./public
+ *= require icomoon
  *= require_self
  */

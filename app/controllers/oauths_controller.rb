@@ -1,47 +1,30 @@
 class OauthsController < ApplicationController
-  skip_before_filter :require_login
+  skip_before_action :require_login
 
   # sends the user on a trip to the provider,
   # and after authorizing there back to the callback url.
-  def oauth
-    @user = User.new
-    login_at(auth_params[:provider])
+  def create
+    auth = request.env['omniauth.auth']
+    # puts "**** #{auth} ****"
+    user = Authentication.find_by(provider: auth['provider'], uid: auth['uid']).try(:user) || User.create_with_omniauth(auth)
+    # Let's sign in the user
+    session[:user_id] = user.id
+    # Use Sorcery remember_me method
+    user.remember_me!
+    redirect_to feed_path
   end
 
-  def callback
-    provider = auth_params[:provider]
-    puts "**** #{auth_params} ****"
-    begin
-    if @user = login_from(provider)
-      # user has already linked their account with github
-      redirect_to dashboard_path
-      flash[:notice] = "Logged in from #{provider.titleize}!"
-    else
-      begin
-        @user = create_from(provider) #add_provider_to_user(provider) #
-        reset_session # protect from session fixation attack
-        auto_login(@user)
-        redirect_to root_path
-        flash[:notice] = "Logged in from #{provider.titleize}!"
-      rescue
-        redirect_back_or_to login_url
-        flash[:alert] = "Failed to login from #{provider.titleize}. Please try again."
-      end
-    end
-    rescue ::OAuth2::Error => e
-      redirect_back_or_to login_url
-      flash[:alert] = "An error occured when trying to sign in with #{provider.titleize}."
-      puts "**** #{e.code} ****"
-      puts e.description
-      puts e.message
-      puts e.backtrace
-    end
+  # By default, it is supposed to raise an exception in development mode
+  # and redirect otherwise. Here, we want real world feeling,
+  # therefore redirecting.
+  # http://stackoverflow.com/questions/10963286/callback-denied-with-omniauth
+  def failure
+    redirect_to login_path, alert: "#{t 'sessions.oauth_failure', default: 'Session not opened. Try again or register'}."
   end
 
-  private
+  # private
 
-    def auth_params
-      params.permit(:code, :provider, :state)
-    end
-
+  # def auth_params
+  #   params.permit(:code, :provider, :state)
+  # end
 end

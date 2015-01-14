@@ -7,7 +7,8 @@ class Authentication < ActiveRecord::Base
 
   # SCOPES
   # ------------------------------------------------------------------------------------------------------
-  scope :github, -> { where(provider: 'github') }
+  scope :github,    -> { where(provider: 'github') }
+  scope :centralid, -> { where(provider: 'centralid') }
 
 
   # INSTANCE METHODS

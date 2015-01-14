@@ -17,20 +17,14 @@ class SessionsController < ApplicationController
 	end
 
 	def destroy
-		# sorcery logout method raising nil issue for current user
-		# Disabling for now
-		# https://github.com/NoamB/sorcery/pull/474
-		# https://github.com/NoamB/sorcery/issues/621
-		# logout
-		reset_session
-    current_user = nil
+		logout
 
 	  redirect_to root_url #, notice: "#{t 'sessions.signed_out', default: 'Signed out'}."
 	end
 
   private
 
-    def increase_login_count(user, credentials)
-      user.increment! :sign_in_count
-    end
+  def increase_login_count(user, credentials)
+    user.increment! :sign_in_count
+  end
 end

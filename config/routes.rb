@@ -17,14 +17,8 @@ Rails.application.routes.draw do
 
   # OAUTH ROUTES
   # ----------------------------------------------------------------------------
-  # post '/oauth/request_token',    to: 'oauths#new'
-  # get '/auth/:provider/callback', to: 'oauths#callback'
-  # get '/auth/failure',            to: 'oauths#failure'
-
-  post 'auth/callback',          to: 'oauths#callback'
-  get 'auth/callback',           to: 'oauths#callback'
-  get 'auth/:provider/callback', to: 'oauths#callback' # for use with Github
-  get 'auth/:provider',          to: 'oauths#oauth',   as: :auth_at_provider
+  # Central ID
+  get 'auth/:provider/callback', to: 'oauths#create'
   get 'auth/failure',            to: 'oauths#failure'
 
   # ADMIN ROUTES

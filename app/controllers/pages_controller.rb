@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-	skip_before_filter :require_login
+	skip_before_action :require_login
   before_action { @render_shared_scripts = true }
   layout 'public'
 
@@ -11,5 +11,4 @@ class PagesController < ApplicationController
 
   def about
   end
-
 end

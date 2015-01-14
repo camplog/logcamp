@@ -10,8 +10,8 @@
         <li><%= link_to 'My Feed', feed_path %></li>
         <li><%= link_to "#{t 'sessions.sign_out'}", logout_path, method: :post %></li>
       <% else %>
-        <li><%= link_to "#{t 'sessions.sign_up'}", signup_path %></li>
-        <li><%= link_to "#{t 'sessions.sign_in'}", login_path %></li>
+        <li><%= link_to "#{t 'sessions.register'}", signup_path %></li>
+        <li><%= icon_link_to "#{t 'sessions.sign_in'}", login_path, icon: 'user' %></li>
       <% end %>
     </ul>
   </div>

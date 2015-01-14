@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150109040127) do
+ActiveRecord::Schema.define(version: 20150114165919) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -96,7 +96,6 @@ ActiveRecord::Schema.define(version: 20150109040127) do
   create_table "users", force: :cascade do |t|
     t.string   "email",                                           null: false
     t.string   "full_name"
-    t.string   "github_login"
     t.boolean  "admin",                           default: false
     t.integer  "applications_count",              default: 0
     t.integer  "searches_count",                  default: 0
@@ -107,7 +106,6 @@ ActiveRecord::Schema.define(version: 20150109040127) do
     t.string   "reset_password_token"
     t.datetime "reset_password_token_expires_at"
     t.datetime "reset_password_email_sent_at"
-    t.datetime "users"
     t.string   "activation_state"
     t.string   "activation_token"
     t.datetime "activation_token_expires_at"

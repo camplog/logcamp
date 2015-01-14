@@ -7,15 +7,14 @@
 
 	  <%= f.input :email, label: false, autofocus: true %>
 	  <%= f.input :password, label: false %>
-
 	  <label class="pure-checkbox">
-	    <%= check_box_tag :remember_me %> <%= t 'remember_me' %>
+	    <%= check_box_tag :remember_me, true %> <%= t 'remember_me' %>
 	  </label>
 
 	  <p><%= f.button :submit, class: 'pure-button pure-button-primary' %></p>
 
 		<p>
-			<%#= link_to "#{t 'sessions.login_with_github'}", auth_at_provider_path(provider: :github) %>
+			<%= link_to "#{t 'sessions.login_with_centralid'}", "/auth/centralid" %>
 			<span class="pull-right"><%= link_to "#{t 'passwords.forgot'}", new_password_path %></span>
 		</p>
   <% end %>

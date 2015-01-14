@@ -7,19 +7,26 @@ class ApplicationController < ActionController::Base
 
   helper_method :abilities, :can?
 
+  rescue_from OAuth2::Error do |exception|
+    if exception.response.status == 401
+      session[:remember_token] = nil
+      session[:access_token] = nil
+      redirect_to root_url, alert: "Access token expired, try signing in again."
+    end
+  end
+
   private
 
-    def not_authenticated
-      redirect_to login_path, alert: "#{t 'sessions.please_sign_in'}."
-    end
+  def not_authenticated
+    redirect_to login_path, alert: "#{t 'sessions.please_sign_in'}."
+  end
 
-    def abilities
-      @abilities ||= Six.new
-    end
+  def abilities
+    @abilities ||= Six.new
+  end
 
-    # simple delegate method for controller & view
-    def can?(object, action, subject)
-      abilities.allowed?(object, action, subject)
-    end
-
+  # simple delegate method for controller & view
+  def can?(object, action, subject)
+    abilities.allowed?(object, action, subject)
+  end
 end

@@ -1,14 +1,17 @@
 <%= content_for :page_title do %><%= "#{t 'registrations.edit'}" %><% end %>
 
 <%= simple_form_for(@user, url: update_profile_path, method: :post) do |f| %>
-  <% if @user.external? %>
-    <div class="alert alert-info">You signed in through GitHub on <%= l @user.authentications.first.created_at.to_date %>.</div>
-  <% end %>
   <%= f.error_notification %>
+
+  <% if @user.signed_up_with_centralid? %>
+    <div class="pure-alert alert-info">
+      You signed in through Central ID on <%= l @user.authentications.centralid.first.created_at.to_date %>.
+    </div>
+  <% end %>
 
   <%= f.input :email %>
   <%= f.input :full_name %>
-  <% unless @user.external? %>
+  <% unless @user.signed_up_with_centralid? %>
     <%= f.input :password, required: false, hint: "#{t 'profile.password_hint'}" %>
     <%= f.input :password_confirmation %>
   <% end %>

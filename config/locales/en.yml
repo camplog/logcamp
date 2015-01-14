@@ -25,9 +25,13 @@ en:
     please_sign_in: Please sign in
     sign_in: Sign in
     sign_up: Sign up
+    register: Register
     sign_out: Sign out
     error: Invalid email/password combination
+    login_with_centralid: Login with Central ID
     login_with_github: Login with GitHub
+    signup_with_centralid: Sign up with Central ID
+    oauth_failure: Session not opened. Try again or register
   mailers:
     signature: Have a great day!
   user_mailer:
