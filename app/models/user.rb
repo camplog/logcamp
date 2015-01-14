@@ -70,17 +70,28 @@ class User < ActiveRecord::Base
 
   # Central ID OAuth
   def self.create_with_omniauth(auth)
-    user = create! do |user|
-      user.full_name   = auth['info']['name']
-      user.email       = auth['info']['email']
-      user.password    = SecureRandom.hex
-      user.authentications.new(
+    # Check if user already exists
+    # If so, let's update it instead of creating new record
+    # since we have uniqueness constraints on db columns
+    case User.find_by(email: auth['info']['email'])
+    when exists?
+      user.authentications.create!(
         provider: auth['provider'],
         uid:      auth['uid']
       )
+    else
+      user = create! do |user|
+        user.full_name   = auth['info']['name']
+        user.email       = auth['info']['email']
+        user.password    = SecureRandom.hex
+        user.authentications.new(
+          provider: auth['provider'],
+          uid:      auth['uid']
+        )
+      end
+      # Activate user manually since Sorcery defaults to 'pending'
+      user.update_attributes(activation_state: 'active', activation_token: nil)
     end
-    # Activate user manually since Sorcery defaults to 'pending'
-    user.update_attributes(activation_state: 'active', activation_token: nil)
     UserMailer.welcome(user).deliver_later
     user
   end

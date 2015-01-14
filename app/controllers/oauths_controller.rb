@@ -21,10 +21,4 @@ class OauthsController < ApplicationController
   def failure
     redirect_to login_path, alert: "#{t 'sessions.oauth_failure', default: 'Session not opened. Try again or register'}."
   end
-
-  # private
-
-  # def auth_params
-  #   params.permit(:code, :provider, :state)
-  # end
 end
