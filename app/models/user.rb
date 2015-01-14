@@ -73,8 +73,9 @@ class User < ActiveRecord::Base
     # Check if user already exists
     # If so, let's update it instead of creating new record
     # since we have uniqueness constraints on db columns
-    case User.find_by(email: auth['info']['email'])
-    when exists?
+    user = User.find_by(email: auth['info']['email'])
+    case
+    when user.present?
       user.authentications.create!(
         provider: auth['provider'],
         uid:      auth['uid']
