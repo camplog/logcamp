@@ -12,10 +12,9 @@
 	  </label>
 
 	  <p><%= f.button :submit, class: 'pure-button pure-button-primary' %></p>
-
-		<p>
-			<%= link_to "#{t 'sessions.login_with_centralid'}", "/auth/centralid" %>
-			<span class="pull-right"><%= link_to "#{t 'passwords.forgot'}", new_password_path %></span>
+    <p>
+      <%= link_to "#{t 'sessions.login_with_centralid'}", "/auth/centralid" %>
+      <span class="pull-right"><%= link_to "#{t 'passwords.forgot'}", new_password_path %></span>
 		</p>
   <% end %>
 </div>

@@ -35,21 +35,20 @@ class Application < ActiveRecord::Base
 
   private
 
-    def format_fields
-    	self.auth_token = SecureRandom.hex
-      self.identicon  = Identicon.data_url_for name, 128, [255, 255, 255]
-    end
+  def format_fields
+  	self.auth_token = SecureRandom.hex
+    self.identicon  = Identicon.data_url_for name, 128, [255, 255, 255]
+  end
 
-    def self.allowed(object, subject)
-      rules = []
-      return rules unless subject.instance_of?(Application)
-      rules << :read_application if subject.members.exists?(object.id)
-      rules << :manage_application if subject.owner == object
-      rules
-    end
+  def self.allowed(object, subject)
+    rules = []
+    return rules unless subject.instance_of?(Application)
+    rules << :read_application if subject.members.exists?(object.id)
+    rules << :manage_application if subject.owner == object
+    rules
+  end
 
-    def add_owner_as_member
-      members << owner
-    end
-
+  def add_owner_as_member
+    members << owner
+  end
 end
