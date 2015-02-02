@@ -11,15 +11,18 @@ class EventMailer < ActionMailer::Base
     @event = event
     @color_code =
     case @event.status
-    when 'log', 'debug', 'warm', 'warning'
+    when 'log', 'debug', 'warm', 'warning', 'inactive', 'deactivated', 'pause', 'hold'
       'e78c05' # orange
-    when 'victory', 'all-good', 'good', 'positive', 'excellent', 'success'
+    when 'victory', 'all-good', 'good', 'positive', 'excellent', 'success', 'succes',
+         'active', 'activated', 'created', 'granted', 'on', 'played', 'recorded',
+         'notified', 'sent', 'started', 'start', 'resume', 'bueno'
       '53b44f' # green
-    when 'information', 'news', 'new', 'cold'
+    when 'information', 'news', 'new', 'cold', 'archived'
       '12a9da' # light-blue
-    when 'failure', 'fail', 'exception', 'danger', 'fire', 'achtung', 'serious', 'injury', 'hot', 'error'
+    when 'failure', 'fail', 'exception', 'danger', 'fire', 'achtung', 'serious',
+         'injury', 'hot', 'error', 'off', 'deleted', 'destroyed', 'stop', 'stopped'
       'e9322d' # red
-    when 'special'
+    when 'special', 'misc', 'magic'
       '563d7c' # purple
     else
       '9d988e' # grey
