@@ -1,4 +1,12 @@
 @import "variables";
+
+.pure-menu-heading.logo {
+  background-image: image-url("logcamp.png");
+  background-size: 32px 36px;
+  background-repeat: no-repeat;
+  padding-left: 36px;
+}
+
 /*
  * Pages
  * --------------------------------------------------

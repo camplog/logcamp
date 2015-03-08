@@ -42,7 +42,7 @@ class ApplicationsControllerTest < ActionController::TestCase
   test "should update application" do
     # patch :update, id: @application.id, application: { name: 'app3', owner_id: @application.owner_id }
     # assert_redirected_to application_path(assigns(:application))
-    patch :update, id: @application.id, application: {}
+    patch :update, id: @application.id
     assert_redirected_to application_path(assigns(:application))
   end
 

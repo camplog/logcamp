@@ -1,7 +1,7 @@
 <%= page_title 'Contact' %>
 
-<p>One day, we'll have a proper contact form.</p>
+<p>Questions? Inquiries? Send us a note.</p>
 
-<p>For now, please direct questions/inquiries to <%= ENV['CONTACT_EMAIL'] %></p>
+<%= render 'contact' %>
 
-<%#= render 'contact' %>
+<p>Powered by <%= link_to "Formtastic", "https://formz.herokuapp.com" %>, a Form endpoint for designers and developers.</p>

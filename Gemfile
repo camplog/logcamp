@@ -72,5 +72,4 @@ group :production do
   gem 'exception_notification', '~> 4.0.0'
   gem 'unicorn'
   gem 'rails_12factor'
-  # gem 'daemons'
 end
