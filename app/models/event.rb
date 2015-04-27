@@ -12,7 +12,10 @@ class Event < ActiveRecord::Base
                       prefix: true # match any characters
                     }
                   },
-                  ignoring: :accents
+                  ignoring: :accents,
+                  order_within_rank: "events.date DESC"
+                  # Fix for PG order_by and pagination
+                  # https://github.com/Casecommons/pg_search#order_within_rank-breaking-ties
 
 
   # ASSOCIATIONS
@@ -56,5 +59,4 @@ class Event < ActiveRecord::Base
       keywords << application.name.downcase.to_s
       self.keywords = keywords.join(", ")
     end
-
 end

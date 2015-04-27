@@ -35,7 +35,7 @@ gem 'rack-cors', require: 'rack/cors'
 gem 'hirb'
 gem 'ffaker'
 gem 'six'
-gem 'pg_search', '~> 0.7.8'
+gem 'pg_search', '~> 1.0.0'
 gem 'kaminari', '~> 1.0.0.alpha', github: 'amatsuda/kaminari'
 gem 'sinatra', '>= 1.3.0', require: nil # required to access sidekiq UI
 gem 'sidekiq', '~> 3.3.0'

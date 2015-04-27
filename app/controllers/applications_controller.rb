@@ -8,7 +8,7 @@ class ApplicationsController < ApplicationController
 
   def show
     @application = Application.includes(:events).find(params[:id])
-    @events = @application.events.order('created_at DESC').page(params[:page]).per(15)
+    @events = @application.events.order('date DESC').page(params[:page]).per(15)
     redirect_to feed_path unless can?(current_user, :read_application, @application)
   end
 

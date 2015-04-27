@@ -2,7 +2,7 @@ class EventsController < ApplicationController
   before_action :set_event, only: [:show, :edit, :update, :destroy]
 
   def index
-    @events = current_user.events.order('created_at DESC').page(params[:page]).per(15)
+    @events = current_user.events.order('date DESC').page(params[:page]).per(15)
     respond_to do |format|
       format.html
       format.js
@@ -61,12 +61,14 @@ class EventsController < ApplicationController
         @application = Application.find(params[:application_id])
         @events = Event.search_by_keyword(params[:query])
                        .where('events.application_id = ?', @application.id)
+                       .order('date DESC')
                        .page(params[:page]).per(15)
       else
         # events#index view
         # get all events users can see based on app. memberships
         @events = Event.search_by_keyword(params[:query])
                        .where('events.application_id IN (?)', current_user.applications.ids)
+                       .order('date DESC')
                        .page(params[:page]).per(15)
       end
     end
