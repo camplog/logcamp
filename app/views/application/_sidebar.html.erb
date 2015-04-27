@@ -18,9 +18,9 @@
                 <%= icon_link_to '', edit_search_path(search), icon: 'cog' %>
               </li>
             <% end %>
-          <% else %>
-            <li><%= link_to 'Save Custom Search', new_search_path %></li>
           <% end %>
+          <li><%= link_to 'Save Custom Search', new_search_path %></li>
+        </li>
 
         <!-- pure-menu-selected -->
         <li class="menu-item-divided"><%= icon_link_to 'My Applications', applications_path, icon: 'cog' %></li>
