@@ -41,7 +41,7 @@ class Event < ActiveRecord::Base
     event_date < 1.day.ago ? event_date.strftime("%d/%m %H:%M") : event_date.strftime("%H:%M")
   end
 
-  # private
+  private
 
     def format_fields
       self.status = status.downcase
