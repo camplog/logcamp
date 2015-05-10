@@ -1,14 +1,4 @@
 GIT
-  remote: git://github.com/NoamB/sorcery.git
-  revision: 9f72029269c091f00973ef6ebcc4351554deb2f5
-  ref: 9f72029269c091f00973ef6ebcc4351554deb2f5
-  specs:
-    sorcery (0.8.6)
-      bcrypt (~> 3.1)
-      oauth (~> 0.4, >= 0.4.4)
-      oauth2 (>= 0.8.0)
-
-GIT
   remote: git://github.com/amatsuda/kaminari.git
   revision: 5c5e9af3c72d910331fd7cbcebe919450f86dffc
   specs:
@@ -23,39 +13,46 @@ GIT
     figaro (1.0.0)
       thor (~> 0.14)
 
+GIT
+  remote: git://github.com/rails/turbolinks.git
+  revision: d2e5b4863a2425155d050b965778d8550d8958e1
+  specs:
+    turbolinks (3.0.0)
+      coffee-rails
+
 GEM
   remote: https://rubygems.org/
   specs:
-    actionmailer (4.2.0)
-      actionpack (= 4.2.0)
-      actionview (= 4.2.0)
-      activejob (= 4.2.0)
+    actionmailer (4.2.1)
+      actionpack (= 4.2.1)
+      actionview (= 4.2.1)
+      activejob (= 4.2.1)
       mail (~> 2.5, >= 2.5.4)
       rails-dom-testing (~> 1.0, >= 1.0.5)
-    actionpack (4.2.0)
-      actionview (= 4.2.0)
-      activesupport (= 4.2.0)
-      rack (~> 1.6.0)
+    actionpack (4.2.1)
+      actionview (= 4.2.1)
+      activesupport (= 4.2.1)
+      rack (~> 1.6)
       rack-test (~> 0.6.2)
       rails-dom-testing (~> 1.0, >= 1.0.5)
       rails-html-sanitizer (~> 1.0, >= 1.0.1)
-    actionview (4.2.0)
-      activesupport (= 4.2.0)
+    actionview (4.2.1)
+      activesupport (= 4.2.1)
       builder (~> 3.1)
       erubis (~> 2.7.0)
       rails-dom-testing (~> 1.0, >= 1.0.5)
       rails-html-sanitizer (~> 1.0, >= 1.0.1)
-    activejob (4.2.0)
-      activesupport (= 4.2.0)
+    activejob (4.2.1)
+      activesupport (= 4.2.1)
       globalid (>= 0.3.0)
-    activemodel (4.2.0)
-      activesupport (= 4.2.0)
+    activemodel (4.2.1)
+      activesupport (= 4.2.1)
       builder (~> 3.1)
-    activerecord (4.2.0)
-      activemodel (= 4.2.0)
-      activesupport (= 4.2.0)
+    activerecord (4.2.1)
+      activemodel (= 4.2.1)
+      activesupport (= 4.2.1)
       arel (~> 6.0)
-    activesupport (4.2.0)
+    activesupport (4.2.1)
       i18n (~> 0.7)
       json (~> 1.7, >= 1.7.7)
       minitest (~> 5.1)
@@ -64,7 +61,7 @@ GEM
     addressable (2.3.6)
     ansi (1.4.3)
     arel (6.0.0)
-    bcrypt (3.1.9)
+    bcrypt (3.1.10)
     better_errors (2.1.0)
       coderay (>= 1.0.0)
       erubis (>= 2.6.6)
@@ -96,10 +93,10 @@ GEM
     coffee-rails (4.0.1)
       coffee-script (>= 2.2.0)
       railties (>= 4.0.0, < 5.0)
-    coffee-script (2.3.0)
+    coffee-script (2.4.1)
       coffee-script-source
       execjs
-    coffee-script-source (1.8.0)
+    coffee-script-source (1.9.1.1)
     columnize (0.9.0)
     connection_pool (2.1.0)
     daemons (1.1.9)
@@ -111,18 +108,17 @@ GEM
     exception_notification (4.0.1)
       actionmailer (>= 3.0.4)
       activesupport (>= 3.0.4)
-    execjs (2.2.2)
+    execjs (2.5.2)
     faraday (0.9.1)
       multipart-post (>= 1.2, < 3)
     ffaker (1.25.0)
     foreman (0.76.0)
       dotenv (~> 1.0.2)
       thor (~> 0.19.1)
-    globalid (0.3.0)
+    globalid (0.3.5)
       activesupport (>= 4.1.0)
     hashie (3.3.2)
     highline (1.6.21)
-    hike (1.2.3)
     hirb (0.7.2)
     hitimes (1.2.2)
     i18n (0.7.0)
@@ -142,13 +138,13 @@ GEM
       addressable (~> 2.3)
     letter_opener (1.3.0)
       launchy (~> 2.2)
-    loofah (2.0.1)
+    loofah (2.0.2)
       nokogiri (>= 1.5.9)
     mail (2.6.3)
       mime-types (>= 1.16, < 3)
-    mime-types (2.4.3)
+    mime-types (2.5)
     mini_portile (0.6.2)
-    minitest (5.6.0)
+    minitest (5.6.1)
     minitest-capybara (0.7.1)
       capybara (~> 2.2)
       minitest (~> 5.0)
@@ -168,7 +164,7 @@ GEM
       builder
       minitest (>= 5.0)
       ruby-progressbar
-    multi_json (1.10.1)
+    multi_json (1.11.0)
     multi_xml (0.5.5)
     multipart-post (2.0.0)
     nested_form (0.3.2)
@@ -179,7 +175,7 @@ GEM
     net-ssh (2.9.1)
     net-ssh-gateway (1.2.0)
       net-ssh (>= 2.6.5)
-    nokogiri (1.6.5)
+    nokogiri (1.6.6.2)
       mini_portile (~> 0.6.0)
     oauth (0.4.7)
     oauth2 (1.0.0)
@@ -200,32 +196,32 @@ GEM
       oauth2 (~> 1.0)
       omniauth (~> 1.2)
     pg (0.18.0)
-    pg_search (1.0.0)
+    pg_search (1.0.2)
       activerecord (>= 3.1)
       activesupport (>= 3.1)
       arel
-    rack (1.6.0)
+    rack (1.6.1)
     rack-cors (0.3.1)
     rack-mini-profiler (0.9.3)
       rack (>= 1.1.3)
     rack-protection (1.5.3)
       rack
-    rack-test (0.6.2)
+    rack-test (0.6.3)
       rack (>= 1.0)
-    rails (4.2.0)
-      actionmailer (= 4.2.0)
-      actionpack (= 4.2.0)
-      actionview (= 4.2.0)
-      activejob (= 4.2.0)
-      activemodel (= 4.2.0)
-      activerecord (= 4.2.0)
-      activesupport (= 4.2.0)
+    rails (4.2.1)
+      actionmailer (= 4.2.1)
+      actionpack (= 4.2.1)
+      actionview (= 4.2.1)
+      activejob (= 4.2.1)
+      activemodel (= 4.2.1)
+      activerecord (= 4.2.1)
+      activesupport (= 4.2.1)
       bundler (>= 1.3.0, < 2.0)
-      railties (= 4.2.0)
+      railties (= 4.2.1)
       sprockets-rails
     rails-deprecated_sanitizer (1.0.3)
       activesupport (>= 4.2.0.alpha)
-    rails-dom-testing (1.0.5)
+    rails-dom-testing (1.0.6)
       activesupport (>= 4.2.0.beta, < 5.0)
       nokogiri (~> 1.6.0)
       rails-deprecated_sanitizer (>= 1.0.1)
@@ -234,16 +230,16 @@ GEM
       activesupport (>= 3.0)
       choice (~> 0.1.6)
       ruby-graphviz (~> 1.0.4)
-    rails-html-sanitizer (1.0.1)
+    rails-html-sanitizer (1.0.2)
       loofah (~> 2.0)
     rails_12factor (0.0.3)
       rails_serve_static_assets
       rails_stdout_logging
     rails_serve_static_assets (0.0.3)
     rails_stdout_logging (0.0.3)
-    railties (4.2.0)
-      actionpack (= 4.2.0)
-      activesupport (= 4.2.0)
+    railties (4.2.1)
+      actionpack (= 4.2.1)
+      activesupport (= 4.2.1)
       rake (>= 0.8.7)
       thor (>= 0.18.1, < 2.0)
     raindrops (0.13.0)
@@ -255,8 +251,8 @@ GEM
       redis (~> 3.0, >= 3.0.4)
     ruby-graphviz (1.0.9)
     ruby-progressbar (1.7.0)
-    sass (3.4.9)
-    sass-rails (5.0.1)
+    sass (3.4.13)
+    sass-rails (5.0.3)
       railties (>= 4.0.0, < 5.0)
       sass (~> 3.1)
       sprockets (>= 2.8, < 4.0)
@@ -280,13 +276,14 @@ GEM
       tilt (~> 1.3, >= 1.3.4)
     six (0.2.0)
     slop (3.6.0)
+    sorcery (0.9.1)
+      bcrypt (~> 3.1)
+      oauth (~> 0.4, >= 0.4.4)
+      oauth2 (>= 0.8.0)
     spring (1.2.0)
-    sprockets (2.12.3)
-      hike (~> 1.2)
-      multi_json (~> 1.0)
+    sprockets (3.0.3)
       rack (~> 1.0)
-      tilt (~> 1.1, != 1.3.0)
-    sprockets-rails (2.2.2)
+    sprockets-rails (2.3.0)
       actionpack (>= 3.0)
       activesupport (>= 3.0)
       sprockets (>= 2.8, < 4.0)
@@ -300,8 +297,6 @@ GEM
     tilt (1.4.1)
     timers (4.0.1)
       hitimes
-    turbolinks (2.5.3)
-      coffee-rails
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
     uglifier (2.6.1)
@@ -342,23 +337,23 @@ DEPENDENCIES
   nested_form
   omniauth-centralid (~> 0.1.0)
   pg
-  pg_search (~> 1.0.0)
+  pg_search (~> 1.0.2)
   rack-cors
   rack-mini-profiler
-  rails (= 4.2.0)
+  rails (= 4.2.1)
   rails-erd
   rails_12factor
-  sass-rails (~> 5.0)
+  sass-rails (~> 5.0.3)
   sdoc (~> 0.4.0)
   sidekiq (~> 3.3.0)
   simple_form (~> 3.1.0)
   sinatra (>= 1.3.0)
   six
-  sorcery!
+  sorcery (~> 0.9.1)
   spring
   tabs_on_rails (~> 2.1.1)
   thin
-  turbolinks
+  turbolinks (~> 3.0.0)!
   uglifier (>= 1.3.0)
   unicorn
   web-console (~> 2.0)

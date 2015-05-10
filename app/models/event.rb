@@ -6,7 +6,7 @@ class Event < ActiveRecord::Base
   # rake pg_search:multisearch:rebuild[Event]
   include PgSearch
   pg_search_scope :search_by_keyword,
-                  against: [:status, :message, :metadata, :keywords],
+                  against: [:status, :date, :message, :metadata, :keywords],
                   using: {
                     tsearch: {
                       prefix: true # match any characters
@@ -31,8 +31,7 @@ class Event < ActiveRecord::Base
   # CALLBACKS
   # ------------------------------------------------------------------------------------------------------
   before_create :set_date
-  before_save   :format_fields
-  after_save    :sync_keywords
+  before_save   :format_fields, :sync_keywords
 
 
   # INSTANCE METHODS
@@ -42,7 +41,7 @@ class Event < ActiveRecord::Base
     event_date < 1.day.ago ? event_date.strftime("%d/%m %H:%M") : event_date.strftime("%H:%M")
   end
 
-  private
+  # private
 
     def format_fields
       self.status = status.downcase
@@ -55,7 +54,6 @@ class Event < ActiveRecord::Base
     def sync_keywords
       # keywords are meant to loosen search results
       keywords = []
-      keywords << date.present? ? self.date.strftime("%d/%m/%Y") : Time.zone.now.strftime("%d/%m/%Y")
       keywords << application.name.downcase.to_s
       self.keywords = keywords.join(", ")
     end

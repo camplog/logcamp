@@ -25,8 +25,7 @@ class UsersController < ApplicationController
 
   private
 
-    def add_abilities
-      abilities << Application
-    end
-
+  def add_abilities
+    abilities << Application
+  end
 end

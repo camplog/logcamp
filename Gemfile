@@ -3,11 +3,11 @@ source 'https://rubygems.org'
 ruby '2.1.5'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.2.0'
+gem 'rails', '4.2.1'
 # Use postgresql as the database for Active Record
 gem 'pg'
 # Use SCSS for stylesheets
-gem 'sass-rails', '~> 5.0'
+gem 'sass-rails', '~> 5.0.3'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .js.coffee assets and views
@@ -18,7 +18,7 @@ gem 'coffee-rails', '~> 4.0.0'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
-gem 'turbolinks'
+gem 'turbolinks', '~> 3.0.0'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
@@ -28,14 +28,14 @@ gem 'simple_form', '~> 3.1.0'
 gem 'nested_form'
 gem 'tabs_on_rails', '~> 2.1.1'
 gem 'figaro', '~> 1.0.0', github: 'laserlemon/figaro'
-gem 'sorcery', github: 'NoamB/sorcery', ref: '9f72029269c091f00973ef6ebcc4351554deb2f5'
+gem 'sorcery', '~> 0.9.1'
 gem 'omniauth-centralid', '~> 0.1.0' #, path: '../../centralid/omniauth-centralid'
 gem 'identicon'
 gem 'rack-cors', require: 'rack/cors'
 gem 'hirb'
 gem 'ffaker'
 gem 'six'
-gem 'pg_search', '~> 1.0.0'
+gem 'pg_search', '~> 1.0.2'
 gem 'kaminari', '~> 1.0.0.alpha', github: 'amatsuda/kaminari'
 gem 'sinatra', '>= 1.3.0', require: nil # required to access sidekiq UI
 gem 'sidekiq', '~> 3.3.0'
