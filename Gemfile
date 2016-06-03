@@ -3,7 +3,7 @@ source 'https://rubygems.org'
 ruby '2.1.5'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.2.1'
+gem 'rails', '4.2.6'
 # Use postgresql as the database for Active Record
 gem 'pg'
 # Use SCSS for stylesheets
@@ -41,13 +41,6 @@ gem 'sinatra', '>= 1.3.0', require: nil # required to access sidekiq UI
 gem 'sidekiq', '~> 3.3.0'
 
 group :test do
-  # gem 'rspec-rails', '~> 3.2.0.pre', github: 'rspec/rspec-rails'
-  # gem 'rspec-support', '~> 3.2.0.pre', github: 'rspec/rspec-support'
-  # gem 'rspec-expectations', '~> 3.2.0.pre', github: 'rspec/rspec-expectations'
-  # gem 'rspec-mocks', '~> 3.2.0.pre', github: 'rspec/rspec-mocks'
-  # gem 'rspec-core', '~> 3.2.0.pre', github: 'rspec/rspec-core'
-  # gem 'factory_girl_rails', '~> 4.5.0'
-  # gem 'database_cleaner', '~> 1.3.0'
   gem 'minitest-rails-capybara'
   gem 'minitest-reporters'
 end
