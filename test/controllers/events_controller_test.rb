@@ -3,11 +3,12 @@ require 'test_helper'
 class EventsControllerTest < ActionController::TestCase
   setup do
     @event = events(:one)
+    authenticate_user
   end
 
   test "should get index" do
     get :index
-    assert_response 302 # :success
+    assert_response :success
     assert_not_nil assigns(:events)
   end
 

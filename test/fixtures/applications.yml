@@ -3,9 +3,9 @@
 one:
   name: app1
   auth_token: '111'
-  owner_id: 1
+  owner: one
 
 two:
   name: app2
   auth_token: '222'
-  owner_id: 1
+  owner: one

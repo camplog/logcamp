@@ -6,7 +6,7 @@ class UsersControllerTest < ActionController::TestCase
   end
 
   test "should get index" do
-    get :index, application_id: @application.id
+    get :index, params: { application_id: @application.id }
     assert_response 302 # :success
   end
 
