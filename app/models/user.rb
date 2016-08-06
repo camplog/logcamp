@@ -63,37 +63,38 @@ class User < ActiveRecord::Base
 
   private
 
-  def format_fields
-    self.email     = email.downcase if email.present?
-    self.full_name = full_name.titleize if full_name.present?
-  end
+    def format_fields
+      self.email     = email.downcase if email.present?
+      self.full_name = full_name.titleize if full_name.present?
+    end
 
-  # Central ID OAuth
-  def self.create_with_omniauth(auth)
-    # Check if user already exists
-    # If so, let's update it instead of creating new record
-    # since we have uniqueness constraints on db columns
-    user = User.find_by(email: auth['info']['email'])
-    case
-    when user.present?
-      user.authentications.create!(
-        provider: auth['provider'],
-        uid:      auth['uid']
-      )
-    else
-      user = create! do |user|
-        user.full_name   = auth['info']['name']
-        user.email       = auth['info']['email']
-        user.password    = SecureRandom.hex
-        user.authentications.new(
+    # Central ID OAuth
+    def self.create_with_omniauth(auth)
+      # Check if user already exists
+      # If so, let's update it instead of creating new record
+      # since we have uniqueness constraints on db columns
+      user = User.find_by(email: auth['info']['email'])
+      case
+      when user.present?
+        user.authentications.create!(
           provider: auth['provider'],
           uid:      auth['uid']
         )
+      else
+        user = create! do |user|
+          user.full_name   = auth['info']['name']
+          user.email       = auth['info']['email']
+          user.password    = SecureRandom.hex
+          user.authentications.new(
+            provider: auth['provider'],
+            uid:      auth['uid']
+          )
+        end
+        # Activate user manually since Sorcery defaults to 'pending'
+        user.update_attributes(activation_state: 'active', activation_token: nil)
       end
-      # Activate user manually since Sorcery defaults to 'pending'
-      user.update_attributes(activation_state: 'active', activation_token: nil)
+      UserMailer.welcome(user).deliver_later
+      user
     end
-    UserMailer.welcome(user).deliver_later
-    user
-  end
+
 end

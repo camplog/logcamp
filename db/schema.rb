@@ -1,4 +1,3 @@
-# encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -21,9 +20,8 @@ ActiveRecord::Schema.define(version: 20150114165919) do
     t.integer  "owner_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["owner_id"], name: "index_accounts_on_owner_id", using: :btree
   end
-
-  add_index "accounts", ["owner_id"], name: "index_accounts_on_owner_id", using: :btree
 
   create_table "applications", force: :cascade do |t|
     t.string   "name"
@@ -34,18 +32,16 @@ ActiveRecord::Schema.define(version: 20150114165919) do
     t.integer  "owner_id"
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
+    t.index ["owner_id"], name: "index_applications_on_owner_id", using: :btree
   end
-
-  add_index "applications", ["owner_id"], name: "index_applications_on_owner_id", using: :btree
 
   create_table "applications_users", id: false, force: :cascade do |t|
     t.integer "application_id"
     t.integer "user_id"
+    t.index ["application_id", "user_id"], name: "index_applications_users_on_application_id_and_user_id", unique: true, using: :btree
+    t.index ["application_id"], name: "index_applications_users_on_application_id", using: :btree
+    t.index ["user_id"], name: "index_applications_users_on_user_id", using: :btree
   end
-
-  add_index "applications_users", ["application_id", "user_id"], name: "index_applications_users_on_application_id_and_user_id", unique: true, using: :btree
-  add_index "applications_users", ["application_id"], name: "index_applications_users_on_application_id", using: :btree
-  add_index "applications_users", ["user_id"], name: "index_applications_users_on_user_id", using: :btree
 
   create_table "authentications", force: :cascade do |t|
     t.string   "provider"
@@ -55,10 +51,9 @@ ActiveRecord::Schema.define(version: 20150114165919) do
     t.string   "user_id"
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
+    t.index ["provider", "uid"], name: "index_authentications_on_provider_and_uid", using: :btree
+    t.index ["user_id"], name: "index_authentications_on_user_id", using: :btree
   end
-
-  add_index "authentications", ["provider", "uid"], name: "index_authentications_on_provider_and_uid", using: :btree
-  add_index "authentications", ["user_id"], name: "index_authentications_on_user_id", using: :btree
 
   create_table "events", force: :cascade do |t|
     t.string   "status"
@@ -70,14 +65,13 @@ ActiveRecord::Schema.define(version: 20150114165919) do
     t.datetime "created_at",                     null: false
     t.datetime "updated_at",                     null: false
     t.datetime "date"
+    t.index ["application_id"], name: "index_events_on_application_id", using: :btree
   end
-
-  add_index "events", ["application_id"], name: "index_events_on_application_id", using: :btree
 
   create_table "pg_search_documents", force: :cascade do |t|
     t.text     "content"
-    t.integer  "searchable_id"
     t.string   "searchable_type"
+    t.integer  "searchable_id"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
   end
@@ -89,9 +83,8 @@ ActiveRecord::Schema.define(version: 20150114165919) do
     t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_searches_on_user_id", using: :btree
   end
-
-  add_index "searches", ["user_id"], name: "index_searches_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                                           null: false
@@ -112,11 +105,10 @@ ActiveRecord::Schema.define(version: 20150114165919) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "sign_in_count",                   default: 0
+    t.index ["activation_token"], name: "index_users_on_activation_token", using: :btree
+    t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
+    t.index ["remember_me_token"], name: "index_users_on_remember_me_token", using: :btree
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", using: :btree
   end
-
-  add_index "users", ["activation_token"], name: "index_users_on_activation_token", using: :btree
-  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
-  add_index "users", ["remember_me_token"], name: "index_users_on_remember_me_token", using: :btree
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", using: :btree
 
 end

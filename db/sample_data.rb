@@ -9,13 +9,14 @@ puts "creating users"
   print '.'
   u = x + 1
   user = User.create!(
-    email: "user#{u}@gmail.com",
-    full_name: [Faker::Name.first_name, Faker::Name.last_name].join(' '),
+    email: "user#{u}@email.com",
+    full_name: [FFaker::Name.first_name, FFaker::Name.last_name].join(' '),
     password: "123123",
     activation_state: 'active',
     activation_token: nil
   )
 end
+User.first.activate!
 print "\n"
 
 puts "creating apps"
@@ -42,11 +43,11 @@ puts "creating events"
   x = i + 1
   event = Event.create!(
     status: [:info, :error, :warning, :success, :log, :debug, :failure, :special].sample,
-    message: Faker::Lorem.sentence,
+    message: FFaker::Lorem.sentence,
     alert: [true, false].sample,
     application_id: Application.pluck(:id).sample
   )
-  event.update!(metadata: event.attributes.to_json)
+  event.update!(metadata: event.attributes)
 end
 print "\n"
 

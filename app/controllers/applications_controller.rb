@@ -49,11 +49,12 @@ class ApplicationsController < ApplicationController
   end
 
   def destroy
-    redirect_to feed_path unless can?(current_user, :manage_application, @application)
-    @application.destroy
-    respond_to do |format|
-      format.html { redirect_to applications_url, notice: 'Application was successfully destroyed.' }
-      format.json { head :no_content }
+    if can?(current_user, :manage_application, @application)
+      @application.destroy
+      respond_to do |format|
+        format.html { redirect_to applications_url, notice: 'Application was successfully destroyed.' }
+        format.json { head :no_content }
+      end
     end
   end
 

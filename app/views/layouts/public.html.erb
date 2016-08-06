@@ -4,8 +4,8 @@
   <title><%= t 'site_name' %></title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <%= stylesheet_link_tag    'public', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag    'public', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   <%= csrf_meta_tags %>
   <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
 </head>
@@ -17,7 +17,6 @@
   <% end %>
   <%= render 'pages/footer' %>
   <% if Rails.env.production? && @render_shared_scripts == true %>
-    <%#= render 'ga_script' %>
     <%= render 'segment_io' %>
   <% end %>
 </body>

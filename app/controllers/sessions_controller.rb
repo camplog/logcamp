@@ -9,6 +9,7 @@ class SessionsController < ApplicationController
 	  user = login(params[:session][:email], params[:session][:password], params[:session][:remember_me])
 
     if user
+    	user.increment! :sign_in_count
 	  	redirect_back_or_to feed_url
 	  else
 		  flash.now.alert = "#{t 'sessions.error', default: 'Invalid email/password combination'}."
@@ -21,9 +22,4 @@ class SessionsController < ApplicationController
 	  redirect_to root_url #, notice: "#{t 'sessions.signed_out', default: 'Signed out'}."
 	end
 
-  private
-
-  def increase_login_count(user, credentials)
-    user.increment! :sign_in_count
-  end
 end
