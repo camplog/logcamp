@@ -1,4 +1,4 @@
-class CreateApplicationsUsers < ActiveRecord::Migration
+class CreateApplicationsUsers < ActiveRecord::Migration[4.2]
   def change
     create_table :applications_users, id: false do |t|
       t.belongs_to :application, index: true

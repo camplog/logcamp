@@ -10,5 +10,4 @@ ready = ->
   	$(this).find(".metadata").toggle()
 
 $(document).ready(ready)
-$(document).on('page:load', ready)
-window.ready = ready
+$(document).on('turbolinks:load', ready)

@@ -27,9 +27,9 @@
         <li><%= icon_link_to 'Documentation', documentation_path, icon: 'book' %></li>
 
         <li class="menu-item-divided"><%= icon_link_to current_user.full_name, profile_path, icon: 'user' %></li>
-        <li><%= icon_link_to "#{t 'sessions.sign_out'}", logout_path, method: :post, icon: 'exit' %></li>
+        <li><%= icon_link_to t('sessions.sign_out'), logout_path, method: :post, icon: 'exit' %></li>
       <% else %>
-        <li><%= icon_link_to "#{t 'sessions.login'}", login_path, icon: 'exit' %></li>
+        <li><%= icon_link_to t('sessions.login'), login_path, icon: 'exit' %></li>
       <% end %>
     </ul>
   </div>

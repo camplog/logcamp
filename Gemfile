@@ -1,9 +1,14 @@
 source 'https://rubygems.org'
 
+git_source(:github) do |repo_name|
+  repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
+  "https://github.com/#{repo_name}.git"
+end
+
 ruby '2.3.1'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 5.0.0'
+gem 'rails', '~> 5.1.1'
 # Use postgresql as the database for Active Record
 gem 'pg'
 # Use Puma as the app server
@@ -27,7 +32,7 @@ gem 'jbuilder', '~> 2.5'
 # gem 'redis', '~> 3.0'
 
 gem 'thin'
-gem 'simple_form', '~> 3.2.0'
+gem 'simple_form', '~> 3.5.0'
 gem 'nested_form'
 # gem 'tabs_on_rails', '~> 2.2'
 gem 'figaro', '~> 1.1.1', github: 'laserlemon/figaro'
@@ -38,11 +43,10 @@ gem 'rack-cors', require: 'rack/cors'
 gem 'hirb'
 gem 'ffaker'
 gem 'six'
-gem 'pg_search', '~> 1.0.2'
+gem 'pg_search', '~> 2.0.1'
 gem 'kaminari', '~> 1.0.0.alpha', github: 'amatsuda/kaminari'
-gem 'sinatra', '~> 2.0.0-alpha', github: 'sinatra/sinatra', require: nil # required to access sidekiq UI
-gem 'rack-protection', '~> 2.0', github: 'sinatra/rack-protection'
-gem 'sidekiq', '~> 4.1'
+gem 'sinatra', '~> 2.0.0' # required to access sidekiq UI
+gem 'sidekiq', '~> 5.0.0'
 gem 'record_tag_helper', '~> 1.0'
 
 group :test do
@@ -57,9 +61,12 @@ group :development do
   gem 'better_errors', '~> 2.0'
   gem 'web-console'
   gem 'binding_of_caller'
-  gem 'listen', '~> 3.0.5'
+  gem 'listen', '>= 3.0.5', '< 3.2'
   gem 'rails-erd'
-  gem 'byebug', platform: :mri
+  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  # Adds support for Capybara system testing and selenium driver
+  gem 'capybara', '~> 2.13'
+  gem 'selenium-webdriver'
   gem 'capistrano', '~> 2.15.5'
   gem 'foreman', require: false
   gem 'spring'
@@ -67,7 +74,7 @@ group :development do
 end
 
 group :production do
-  gem 'exception_notification', '~> 4.0.0'
+  gem 'exception_notification', '~> 4.1.0'
   gem 'unicorn'
   gem 'rails_12factor'
 end

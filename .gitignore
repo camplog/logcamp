@@ -26,3 +26,6 @@ public/assets/
 public/assets/
 .capistrano/
 *.rdb
+/node_modules
+/yarn-error.log
+.byebug_history
