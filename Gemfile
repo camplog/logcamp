@@ -74,7 +74,7 @@ group :development do
 end
 
 group :production do
-  gem 'exception_notification', '~> 4.1.0'
+  gem 'exception_notification', '~> 4.2.1'
   gem 'unicorn'
   gem 'rails_12factor'
 end
