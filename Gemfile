@@ -67,7 +67,7 @@ group :development do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
-  gem 'capistrano', '~> 2.15.5'
+  gem 'capistrano', '~> 3.8.1'
   gem 'foreman', require: false
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
