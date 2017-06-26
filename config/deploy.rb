@@ -11,7 +11,7 @@ set :use_sudo, false
 set :rails_env, 'production'
 
 set :scm, 'git'
-set :repository, 'git@bitbucket.org:olimart/logcamp.git'
+set :repository, 'git@github.com:camplog/logcamp.git'
 set :branch, 'master'
 
 default_run_options[:pty] = true
