@@ -26,9 +26,8 @@ module Logcamp
       allow do
         origins '*'
         resource '/api/*', headers: :any,
-          methods: [:get, :post, :options], credentials: true, max_age: 0
+          methods: [:get, :post, :options], credentials: false, max_age: 0
       end
     end
-
   end
 end
