@@ -57,7 +57,7 @@ end
 group :development do
   gem 'rack-mini-profiler'
   gem 'letter_opener'
-  gem 'better_errors', '~> 2.0'
+  gem 'better_errors', '~> 2.4'
   gem 'web-console'
   gem 'binding_of_caller'
   gem 'listen', '>= 3.0.5', '< 3.2'
