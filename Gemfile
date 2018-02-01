@@ -43,7 +43,7 @@ gem 'hirb'
 gem 'ffaker'
 gem 'six'
 gem 'pg_search', '~> 2.0.1'
-gem 'kaminari', '~> 1.0.0.alpha', github: 'amatsuda/kaminari'
+gem 'kaminari', '~> 1.1.1', github: 'amatsuda/kaminari'
 gem 'sinatra', '~> 2.0.0' # required to access sidekiq UI
 gem 'sidekiq', '~> 5.0.4'
 gem 'record_tag_helper', '~> 1.0'
