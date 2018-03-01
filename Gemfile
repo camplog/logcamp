@@ -64,7 +64,7 @@ group :development do
   gem 'rails-erd'
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   # Adds support for Capybara system testing and selenium driver
-  gem 'capybara', '~> 2.13'
+  gem 'capybara', '~> 2.18'
   gem 'selenium-webdriver'
   gem 'capistrano', '~> 2.15.5'
   gem 'foreman', require: false
