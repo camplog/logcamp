@@ -32,7 +32,7 @@ gem 'jbuilder', '~> 2.7'
 # gem 'redis', '~> 3.0'
 
 gem 'thin'
-gem 'simple_form', '~> 3.5.0'
+gem 'simple_form', '~> 3.5.1'
 gem 'nested_form'
 gem 'figaro', '~> 1.1.1', github: 'laserlemon/figaro'
 gem 'sorcery', '~> 0.11.0'
